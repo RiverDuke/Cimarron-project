@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Reservation() {
+  const initialValue = {
+    first_name: "",
+    last_name: "",
+    mobile_number: "",
+    reservation_date: "",
+    reservation_time: "",
+    people: 0,
+  };
+  const [data, setData] = useState({ ...initialValue });
+
+  function onChange({ target }) {
+    setData({
+      ...data,
+      [target.name]: target.value,
+    });
+    console.log(data);
+  }
+
+  function onSubmit() {}
+
   return (
     <form>
       <div className="form-group">
@@ -10,6 +30,7 @@ export default function Reservation() {
           type="text"
           className="form-control"
           id="name"
+          onChange={onChange}
         ></input>
       </div>
       <div className="form-group">
@@ -19,6 +40,7 @@ export default function Reservation() {
           type="text"
           className="form-control"
           id="name"
+          onChange={onChange}
         ></input>
       </div>
       <div className="form-group .col-6">
@@ -28,6 +50,7 @@ export default function Reservation() {
           type="text"
           className="form-control"
           id="name"
+          onChange={onChange}
         ></input>
       </div>
       <div className="form-group">
@@ -37,6 +60,7 @@ export default function Reservation() {
           type="date"
           className="form-control"
           id="name"
+          onChange={onChange}
         ></input>
       </div>
       <div className="form-group">
@@ -46,6 +70,7 @@ export default function Reservation() {
           type="time"
           className="form-control"
           id="name"
+          onChange={onChange}
         ></input>
       </div>
       <div className="form-group">
@@ -55,8 +80,15 @@ export default function Reservation() {
           type="number"
           className="form-control"
           id="name"
+          onChange={onChange}
         ></input>
       </div>
+      <button type="button" className="btn btn-secondary mr-2">
+        Cancel
+      </button>
+      <button type="button" className="btn btn-primary">
+        Submit
+      </button>
     </form>
   );
 }
