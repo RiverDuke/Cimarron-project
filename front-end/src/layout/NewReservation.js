@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createReservation } from "../utils/api";
 
 export default function Reservation() {
   const initialValue = {
@@ -19,10 +20,15 @@ export default function Reservation() {
     console.log(data);
   }
 
-  function onSubmit() {}
+  async function onSubmit(event) {
+    event.preventDefault();
+    try {
+      await createReservation();
+    } catch {}
+  }
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <div className="form-group">
         <label htmlFor="name">First Name</label>
         <input
@@ -86,7 +92,7 @@ export default function Reservation() {
       <button type="button" className="btn btn-secondary mr-2">
         Cancel
       </button>
-      <button type="button" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         Submit
       </button>
     </form>
