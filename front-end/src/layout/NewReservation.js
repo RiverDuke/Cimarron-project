@@ -21,10 +21,12 @@ export default function Reservation() {
   }
 
   async function onSubmit(event) {
+    const ac = new AbortController();
+    console.log("hello");
     event.preventDefault();
     try {
-      await createReservation();
-    } catch {}
+      await createReservation(data, ac.signal);
+    } catch (error) {}
   }
 
   return (
@@ -37,6 +39,8 @@ export default function Reservation() {
           className="form-control"
           id="name"
           onChange={onChange}
+          value={data.name}
+          required
         ></input>
       </div>
       <div className="form-group">
@@ -47,6 +51,8 @@ export default function Reservation() {
           className="form-control"
           id="name"
           onChange={onChange}
+          value={data.name}
+          required
         ></input>
       </div>
       <div className="form-group .col-6">
@@ -57,6 +63,8 @@ export default function Reservation() {
           className="form-control"
           id="name"
           onChange={onChange}
+          value={data.name}
+          required
         ></input>
       </div>
       <div className="form-group">
@@ -67,6 +75,8 @@ export default function Reservation() {
           className="form-control"
           id="name"
           onChange={onChange}
+          value={data.name}
+          required
         ></input>
       </div>
       <div className="form-group">
@@ -77,6 +87,8 @@ export default function Reservation() {
           className="form-control"
           id="name"
           onChange={onChange}
+          value={data.name}
+          required
         ></input>
       </div>
       <div className="form-group">
@@ -87,6 +99,8 @@ export default function Reservation() {
           className="form-control"
           id="name"
           onChange={onChange}
+          value={data.name}
+          required
         ></input>
       </div>
       <button type="button" className="btn btn-secondary mr-2">
