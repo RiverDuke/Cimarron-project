@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { createReservation } from "../utils/api";
 
 export default function Reservation() {
@@ -11,6 +12,7 @@ export default function Reservation() {
     people: 0,
   };
   const [data, setData] = useState({ ...initialValue });
+  const history = useHistory();
 
   function onChange({ target }) {
     setData({
@@ -26,6 +28,7 @@ export default function Reservation() {
     event.preventDefault();
     try {
       await createReservation(data, ac.signal);
+      history.push("/dashboard");
     } catch (error) {}
   }
 
@@ -103,7 +106,11 @@ export default function Reservation() {
           required
         ></input>
       </div>
-      <button type="button" className="btn btn-secondary mr-2">
+      <button
+        type="button"
+        className="btn btn-secondary mr-2"
+        onClick={() => history.goBack()}
+      >
         Cancel
       </button>
       <button type="submit" className="btn btn-primary">
