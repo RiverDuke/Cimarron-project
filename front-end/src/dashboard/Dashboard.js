@@ -20,7 +20,6 @@ function Dashboard({ date }) {
   useEffect(loadDashboard, [date]);
 
   function loadDashboard() {
-    console.log("hello");
     const abortController = new AbortController();
     setReservationsError(null);
     listReservations({ date }, abortController.signal)
@@ -29,30 +28,36 @@ function Dashboard({ date }) {
     return () => abortController.abort();
   }
 
-  console.log(date);
-  console.log(next(date));
-
   function DateDisplay() {
     return (
-      <div className="row">
+      <div className="d-flex row mb-2">
         <button
           type="button"
-          className="btn btn-success"
+          className="btn btn-info ml-3"
           onClick={() => {
             history.push(`/dashboard?date=${previous(date)}`);
           }}
         >
           Success
         </button>
-        <h4>{date}</h4>
+        <h4 className="ml-1">{date}</h4>
         <button
           type="button"
-          className="btn btn-success"
+          className="btn btn-info ml-1"
           onClick={() => {
             history.push(`/dashboard?date=${next(date)}`);
           }}
         >
           Success
+        </button>
+        <button
+          type="button"
+          className="btn btn-warning ml-auto mr-3"
+          onClick={() => {
+            history.push(`/dashboard?date=${today()}`);
+          }}
+        >
+          Today
         </button>
       </div>
     );
@@ -97,9 +102,10 @@ function Dashboard({ date }) {
       <div className="d-md-flex mb-3">
         <h4 className="mb-0">Reservations for date</h4>
       </div>
-      <ErrorAlert error={reservationsError} />
+
       <DateDisplay />
       <Table />
+      <ErrorAlert error={reservationsError} />
     </main>
   );
 }
