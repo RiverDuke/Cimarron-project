@@ -25,22 +25,26 @@ export default function Reservation() {
   async function onSubmit(event) {
     event.preventDefault();
     setReservationsError(null);
+
     try {
-      const response = await createReservation(data);
-      const { data: resData } = await response.json();
-      history.push(`/dashboard?date=${resData.reservation_date}`);
-    } catch (error) {
-      console.log(error);
-      console.log("errorcode");
-      setReservationsError(error.message);
+      const res = await createReservation(data);
+      const body = await res.json();
+
+      if (res.status >= 400) {
+        throw body.error;
+      } else {
+        history.push(`/dashboard?date=${data.reservation_date}`);
+      }
+    } catch (err) {
+      setReservationsError(err);
     }
   }
 
   function ErrorHandle() {
     return (
       reservationsError && (
-        <div className="alert alert-danger" role="alert">
-          A simple danger alert—check it out!
+        <div className="alert alert-danger mt-2 mb-2" role="alert">
+          {reservationsError}
         </div>
       )
     );
