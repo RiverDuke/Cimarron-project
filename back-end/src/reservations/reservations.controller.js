@@ -1,7 +1,3 @@
-/**
- * List handler for reservation resources
- */
-
 const service = require("./reservations.service");
 
 function validate(req, res, next) {
@@ -53,7 +49,6 @@ async function list(req, res) {
 
 async function create(req, res, next) {
   const data = await service.create(req.body.data);
-  console.log("data posted:", data);
   res.json({ data });
 }
 
