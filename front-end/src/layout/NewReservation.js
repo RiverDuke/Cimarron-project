@@ -30,7 +30,7 @@ export default function Reservation() {
       const res = await createReservation(data);
       const body = await res.json();
 
-      if (res.status >= 400) {
+      if (res.status >= 299 || res.status < 200 ) {
         throw body.error;
       } else {
         history.push(`/dashboard?date=${data.reservation_date}`);
