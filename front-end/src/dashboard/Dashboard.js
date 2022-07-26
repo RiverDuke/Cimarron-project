@@ -103,8 +103,11 @@ function Dashboard({ date }) {
         <h4 className="mb-0">Reservations for date</h4>
       </div>
 
-      <DateDisplay />
-      <Table />
+      <div class="border bg-light p-3 border-dark">
+        <DateDisplay />
+        <Table />
+      </div>
+
       <ErrorAlert error={reservationsError} />
     </main>
   );
