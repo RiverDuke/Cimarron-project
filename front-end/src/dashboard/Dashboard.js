@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { listReservations, listTable } from "../utils/api";
+import { clearTable, listReservations, listTable } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { next, today, previous } from "../utils/date-time";
 import { useHistory } from "react-router";
@@ -143,6 +143,35 @@ function Dashboard({ date }) {
             </tr>
           </thead>
           {tables.map((table) => {
+            function Finish() {
+              if (table.reservation_id) {
+                return (
+                  <td style={{ borderTop: "0" }}>
+                    <button
+                      type="button"
+                      className="btn btn-info "
+                      data-table-id-finish={table.table_id}
+                      onClick={async () => {
+                        if (
+                          window.confirm(
+                            "Is this table ready to seat new guests? \n \n This cannont be undone."
+                          )
+                        ) {
+                          await clearTable(table.table_id);
+                          loadTable();
+                        } else {
+                          console.log("goodbye");
+                        }
+                      }}
+                    >
+                      finish
+                    </button>
+                  </td>
+                );
+              } else {
+                return null;
+              }
+            }
             return (
               <tbody key={table.table_id}>
                 <tr>
@@ -155,6 +184,7 @@ function Dashboard({ date }) {
                   >
                     {table.reservation_id ? "Occupied" : "Free"}
                   </td>
+                  <Finish />
                 </tr>
               </tbody>
             );

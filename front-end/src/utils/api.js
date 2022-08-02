@@ -130,3 +130,13 @@ export async function updateTable(tableId, reservation_id, signal) {
   };
   return await fetch(url, options);
 }
+
+export async function clearTable(tableId, signal) {
+  const url = new URL(`${API_BASE_URL}/tables/${tableId}/seat`);
+  const options = {
+    method: "DELETE",
+    signal,
+    headers: { "Content-Type": "application/json" },
+  };
+  return await fetch(url, options);
+}
