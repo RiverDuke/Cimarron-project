@@ -93,3 +93,40 @@ export async function createTable(table, signal) {
   };
   return await fetch(url, options);
 }
+
+export async function listTable(signal) {
+  const url = new URL(`${API_BASE_URL}/tables`);
+  const options = {
+    signal,
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  return await fetchJson(url, options);
+}
+
+export async function readReservation(reservation_Id, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations/${reservation_Id}`);
+  const options = {
+    signal,
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  return await fetchJson(url, options);
+}
+
+export async function updateTable(tableId, reservation_id, signal) {
+  const url = new URL(`${API_BASE_URL}/tables/${tableId}/seat`);
+  const options = {
+    method: "PUT",
+    signal,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data: { reservation_id } }),
+  };
+  return await fetch(url, options);
+}

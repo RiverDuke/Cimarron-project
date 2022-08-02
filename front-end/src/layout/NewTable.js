@@ -5,7 +5,7 @@ import { createTable } from "../utils/api";
 export default function NewTable() {
   const initialValue = {
     table_name: "",
-    capacity: 1,
+    capacity: null,
   };
   const [data, setData] = useState({ ...initialValue });
   const [reservationsError, setReservationsError] = useState(null);
@@ -22,6 +22,7 @@ export default function NewTable() {
   async function onSubmit(event) {
     event.preventDefault();
     setReservationsError(null);
+    data.capacity = Number(data.capacity);
 
     try {
       const res = await createTable(data);
