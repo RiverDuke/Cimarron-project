@@ -1,4 +1,3 @@
-const { KnexTimeoutError } = require("knex");
 const knex = require("../db/connection");
 
 function list(date) {
@@ -13,7 +12,13 @@ function create(newReservation) {
     .insert(newReservation, "*")
     .then((data) => data[0]);
 }
+
+function read(Id) {
+  return knex("reservations").select("*").where({ reservation_id: Id }).first();
+}
+
 module.exports = {
   list,
   create,
+  read,
 };

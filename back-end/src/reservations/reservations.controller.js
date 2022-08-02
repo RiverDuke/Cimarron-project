@@ -14,14 +14,14 @@ function validate(req, res, next) {
 
   // 2 == Tuesday
   if (day == 2) {
-    next({
+    return next({
       status: 400,
       message: "Restuarant is closed on Tuesdays",
     });
   }
 
   if (date.getTime() < today.getTime()) {
-    next({
+    return next({
       status: 400,
       message: "Reservation must be in the future",
     });
@@ -29,16 +29,115 @@ function validate(req, res, next) {
 
   if (
     hours < 10 ||
-    (hours === 10 && mins < 30) ||
+    (hours == 10 && mins < 30) ||
     hours > 21 ||
-    (hours === 21 && mins > 30)
+    (hours == 21 && mins > 30)
   ) {
-    next({
+    return next({
       status: 400,
       message: "Reservations should be made between 10:30am - 9:30pm",
     });
   }
-  next();
+  return next();
+}
+
+async function reservationExists(req, res, next) {
+  const resrVation = await service.read(req.params.reservation_id);
+
+  if (resrVation) {
+    return next();
+  } else {
+    return next({
+      status: 404,
+      message: `Reservation_id: ${req.params.reservation_id} does not exist`,
+    });
+  }
+}
+
+function dataCheck(req, res, next) {
+  if (!req.body.data) {
+    return next({
+      status: 400,
+      message: "must include data property",
+    });
+  }
+
+  const {
+    first_name,
+    last_name,
+    mobile_number,
+    reservation_date,
+    reservation_time,
+    people,
+  } = req.body.data;
+
+  let date = new Date(reservation_date);
+  let time = new Date(new Date(`${reservation_date}T${reservation_time}`));
+
+  if (!first_name || first_name.length === 0) {
+    return next({
+      status: 400,
+      message: "first_name must be included",
+    });
+  }
+
+  if (!last_name || last_name.length === 0) {
+    return next({
+      status: 400,
+      message: "last_name must be included",
+    });
+  }
+
+  if (!mobile_number || mobile_number.length === 0) {
+    return next({
+      status: 400,
+      message: "mobile_number must be included",
+    });
+  }
+
+  if (!reservation_date || reservation_date.length === 0) {
+    return next({
+      status: 400,
+      message: "reservation_date must be included",
+    });
+  }
+
+  if (!reservation_time || reservation_time.length === 0) {
+    return next({
+      status: 400,
+      message: "reservation_time must be included",
+    });
+  }
+
+  if (!people || people === 0) {
+    return next({
+      status: 400,
+      message: "people must be included and greater than 0",
+    });
+  }
+
+  if (typeof people !== "number") {
+    return next({
+      status: 400,
+      message: "people must be a number",
+    });
+  }
+
+  if (date.toString() === "Invalid Date") {
+    return next({
+      status: 400,
+      message: "reservation_date must be a date",
+    });
+  }
+
+  if (time.toString() === "Invalid Date") {
+    return next({
+      status: 400,
+      message: "reservation_time must be a time",
+    });
+  }
+
+  return next();
 }
 
 async function list(req, res) {
@@ -49,10 +148,16 @@ async function list(req, res) {
 
 async function create(req, res, next) {
   const data = await service.create(req.body.data);
+  res.status(201).json({ data });
+}
+
+async function read(req, res, next) {
+  const data = await service.read(req.params.reservation_id);
   res.json({ data });
 }
 
 module.exports = {
   list,
-  create: [validate, create],
+  create: [dataCheck, validate, create],
+  read: [reservationExists, read],
 };

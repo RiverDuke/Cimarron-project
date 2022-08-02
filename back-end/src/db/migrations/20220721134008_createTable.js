@@ -3,6 +3,11 @@ exports.up = function (knex) {
     table.increments("table_id").primary();
     table.string("table_name").notNullable();
     table.integer("capacity").notNullable();
+    table
+      .integer("reservation_id")
+      .references("reservation_id")
+      .inTable("reservations")
+      .defaultTo(null);
     table.timestamps(true, true);
   });
 };
@@ -10,5 +15,3 @@ exports.up = function (knex) {
 exports.down = function (knex) {
   return knex.schema.dropTable("tables");
 };
-
-
