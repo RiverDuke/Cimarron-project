@@ -152,3 +152,16 @@ export async function reservationStatusChange(reservationId, status, signal) {
 
   return await fetch(url, options);
 }
+
+export async function updateReservation(reservationId, reservation, signal) {
+  const url = new URL(`${API_BASE_URL}/reservations/${reservationId}`);
+  const options = {
+    method: "PUT",
+    signal,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data: reservation }),
+  };
+  return await fetch(url, options);
+}

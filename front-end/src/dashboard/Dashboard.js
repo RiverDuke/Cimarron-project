@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { clearTable, listReservations, listTable } from "../utils/api";
+import {
+  clearTable,
+  listReservations,
+  listTable,
+  reservationStatusChange,
+} from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { next, today, previous } from "../utils/date-time";
 import { useHistory } from "react-router";
@@ -12,7 +17,9 @@ import { Link } from "react-router-dom";
  * @returns {JSX.Element}
  */
 
-function SeatBtnDisplay({ reservation }) {
+function SeatBtnDisplay({ reservation, loadDashboard }) {
+  console.log("loadDashboard", loadDashboard);
+  const history = useHistory();
   if (reservation.status === "booked") {
     return (
       <>
@@ -40,7 +47,18 @@ function SeatBtnDisplay({ reservation }) {
           <button
             type="button"
             className="btn btn-info "
-            href={`/reservations/${reservation.reservation_id}`}
+            data-reservation-id-cancel={reservation.reservation_id}
+            onClick={async () => {
+              if (window.confirm("Do you want to cancel this reservation?")) {
+                await reservationStatusChange(
+                  reservation.reservation_id,
+                  "cancelled"
+                );
+                history.go(0);
+              } else {
+                console.log("goodbye");
+              }
+            }}
           >
             Cancel
           </button>
@@ -52,7 +70,7 @@ function SeatBtnDisplay({ reservation }) {
   }
 }
 
-export function ResrVation({ reservations }) {
+export function ResrVation({ reservations, loadDashboard }) {
   return (
     <div>
       <table className="table">
@@ -80,7 +98,10 @@ export function ResrVation({ reservations }) {
                 <td data-reservation-id-status={reservation.reservation_id}>
                   {reservation.status}
                 </td>
-                <SeatBtnDisplay reservation={reservation} />
+                <SeatBtnDisplay
+                  reservation={reservation}
+                  loadDashboard={loadDashboard}
+                />
               </tr>
             </tbody>
           );
@@ -221,7 +242,7 @@ export default function Dashboard({ date }) {
 
       <div className="border bg-light p-3 border-dark mb-4 overflow-auto">
         <DateDisplay />
-        <ResrVation reservations={reservations} />
+        <ResrVation reservations={reservations} loadDashboard={loadDashboard} />
       </div>
 
       <div className="border bg-light p-3 border-dark overflow-auto">

@@ -32,7 +32,14 @@ export default function Search() {
     if (reservations.length === 0) {
       return null;
     } else {
-      return <ResrVation reservations={reservations} />;
+      return (
+        <ResrVation
+          reservations={reservations}
+          loadDashboard={listReservations({
+            mobile_number: data.mobile_number,
+          })}
+        />
+      );
     }
   }
 
@@ -48,13 +55,13 @@ export default function Search() {
     }
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const abortController = new AbortController();
     setReservationsError(null);
     setNoMatch(null);
     setReservations([]);
-    listReservations(
+    await listReservations(
       { mobile_number: data.mobile_number },
       abortController.signal
     )
