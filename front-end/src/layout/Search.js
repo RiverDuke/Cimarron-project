@@ -1,6 +1,6 @@
 import { ResrVation } from "../dashboard/Dashboard";
 import React, { useState } from "react";
-import { listReservations } from "../utils/api";
+import { listReservations, search } from "../utils/api";
 
 export default function Search() {
   const initialState = {
@@ -12,6 +12,7 @@ export default function Search() {
   const [noMatch, setNoMatch] = useState("");
 
   function onChange({ target }) {
+    console.log("onChange");
     setData({
       ...data,
       [target.name]: target.value,
@@ -32,14 +33,7 @@ export default function Search() {
     if (reservations.length === 0) {
       return null;
     } else {
-      return (
-        <ResrVation
-          reservations={reservations}
-          loadDashboard={listReservations({
-            mobile_number: data.mobile_number,
-          })}
-        />
-      );
+      return <ResrVation reservations={reservations} />;
     }
   }
 
@@ -55,28 +49,28 @@ export default function Search() {
     }
   }
 
-  async function handleSubmit(event) {
+  async function display() {
+    const list = await listReservations({ mobile_number: data.mobile_number });
+    if (list.length === 0) {
+      setNoMatch("No reservations found");
+    } else {
+      setReservations(list);
+    }
+  }
+
+  function handleSubmit(event) {
+    console.log("handleSubmit");
     event.preventDefault();
-    const abortController = new AbortController();
     setReservationsError(null);
     setNoMatch(null);
     setReservations([]);
-    await listReservations(
-      { mobile_number: data.mobile_number },
-      abortController.signal
-    )
-      .then((response) => {
-        console.log(response);
-        if (response.length === 0) {
-          setNoMatch("No reservations found");
-        } else {
-          setReservations(response);
-        }
-      })
-
-      .catch(setReservationsError);
-    return () => abortController.abort();
+    try {
+      display();
+    } catch (err) {
+      setReservationsError(err);
+    }
   }
+
   console.log(reservations);
   return (
     <>
