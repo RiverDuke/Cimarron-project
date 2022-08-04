@@ -17,8 +17,7 @@ import { Link } from "react-router-dom";
  * @returns {JSX.Element}
  */
 
-function SeatBtnDisplay({ reservation, loadDashboard }) {
-  console.log("loadDashboard", loadDashboard);
+function SeatBtnDisplay({ reservation }) {
   const history = useHistory();
   if (reservation.status === "booked") {
     return (

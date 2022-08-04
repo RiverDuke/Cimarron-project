@@ -5,7 +5,7 @@ import { createTable } from "../utils/api";
 export default function NewTable() {
   const initialValue = {
     table_name: "",
-    capacity: null,
+    capacity: "",
   };
   const [data, setData] = useState({ ...initialValue });
   const [reservationsError, setReservationsError] = useState(null);
@@ -16,7 +16,6 @@ export default function NewTable() {
       ...data,
       [target.name]: target.value,
     });
-    console.log(data);
   }
 
   async function onSubmit(event) {

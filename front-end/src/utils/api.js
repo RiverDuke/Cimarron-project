@@ -165,3 +165,13 @@ export async function updateReservation(reservationId, reservation, signal) {
   };
   return await fetch(url, options);
 }
+
+export async function search(number, signal) {
+  const url = `${API_BASE_URL}/reservations?mobile_number=${number}`;
+  const options = {
+    method: "GET",
+    headers,
+    signal,
+  };
+  return await fetchJson(url, options, {});
+}

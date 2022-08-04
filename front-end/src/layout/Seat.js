@@ -12,7 +12,7 @@ export default function Seat() {
   const [data, setData] = useState(undefined);
   const { params } = useRouteMatch();
 
-  useEffect(loadReservation, []);
+  useEffect(loadReservation, [params.reservation_id]);
   useEffect(loadTable, []);
 
   function loadReservation() {
@@ -27,9 +27,11 @@ export default function Seat() {
   }
 
   function loadTable() {
-    listTable().then((res) => {
+    const ac = new AbortController();
+    listTable(ac.signal).then((res) => {
       return setTables(res);
     });
+    return () => ac.abort();
   }
 
   function handleChange(event) {
@@ -42,7 +44,6 @@ export default function Seat() {
 
     try {
       const res = await updateTable(data, params.reservation_id);
-      console.log(res);
       const body = await res.json();
 
       if (res.status >= 299 || res.status < 200) {

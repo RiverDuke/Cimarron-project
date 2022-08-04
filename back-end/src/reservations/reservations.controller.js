@@ -1,3 +1,4 @@
+const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 const service = require("./reservations.service");
 
 function validate(req, res, next) {
@@ -213,16 +214,22 @@ async function statusChange(req, res, next) {
 }
 
 async function update(req, res, next) {
-  console.log(req.params.reservation_id);
-  console.log(req.body.data);
   const data = await service.update(req.params.reservation_id, req.body.data);
   res.json({ data });
 }
 
 module.exports = {
-  list,
-  create: [dataCheck, validate, create],
-  read: [reservationExists, read],
-  statusChange: [reservationExists, checkStatus, statusChange],
-  update: [reservationExists, dataCheck, update],
+  list: [asyncErrorBoundary(list)],
+  create: [dataCheck, validate, asyncErrorBoundary(create)],
+  read: [asyncErrorBoundary(reservationExists), asyncErrorBoundary(read)],
+  statusChange: [
+    asyncErrorBoundary(reservationExists),
+    checkStatus,
+    asyncErrorBoundary(statusChange),
+  ],
+  update: [
+    asyncErrorBoundary(reservationExists),
+    dataCheck,
+    asyncErrorBoundary(update),
+  ],
 };

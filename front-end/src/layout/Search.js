@@ -32,14 +32,7 @@ export default function Search() {
     if (reservations.length === 0) {
       return null;
     } else {
-      return (
-        <ResrVation
-          reservations={reservations}
-          loadDashboard={listReservations({
-            mobile_number: data.mobile_number,
-          })}
-        />
-      );
+      return <ResrVation reservations={reservations} />;
     }
   }
 
@@ -55,29 +48,27 @@ export default function Search() {
     }
   }
 
-  async function handleSubmit(event) {
+  async function display() {
+    const list = await listReservations({ mobile_number: data.mobile_number });
+    if (list.length === 0) {
+      setNoMatch("No reservations found");
+    } else {
+      setReservations(list);
+    }
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
-    const abortController = new AbortController();
     setReservationsError(null);
     setNoMatch(null);
     setReservations([]);
-    await listReservations(
-      { mobile_number: data.mobile_number },
-      abortController.signal
-    )
-      .then((response) => {
-        console.log(response);
-        if (response.length === 0) {
-          setNoMatch("No reservations found");
-        } else {
-          setReservations(response);
-        }
-      })
-
-      .catch(setReservationsError);
-    return () => abortController.abort();
+    try {
+      display();
+    } catch (err) {
+      setReservationsError(err);
+    }
   }
-  console.log(reservations);
+
   return (
     <>
       <h1 className="card-title">Search Reservations</h1>

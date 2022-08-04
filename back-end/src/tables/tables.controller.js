@@ -1,5 +1,6 @@
 const service = require("./tables.service");
 const { read } = require("../reservations/reservations.service");
+const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 function validate(req, res, next) {
   if (!req.body.data) {
@@ -133,8 +134,12 @@ async function destroy(req, res, next) {
 }
 
 module.exports = {
-  create: [validate, create],
+  create: [validate, asyncErrorBoundary(create)],
   list,
-  update: [checkData, update],
-  destroy: [tableIdExists, vacantCheck, destroy],
+  update: [asyncErrorBoundary(checkData), asyncErrorBoundary(update)],
+  destroy: [
+    asyncErrorBoundary(tableIdExists),
+    asyncErrorBoundary(vacantCheck),
+    asyncErrorBoundary(destroy),
+  ],
 };
