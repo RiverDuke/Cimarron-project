@@ -178,6 +178,12 @@ function checkStatus(req, res, next) {
 }
 
 async function list(req, res) {
+  if (req.query.mobile_number) {
+    return res.json({
+      data: await service.readNumber(req.query.mobile_number),
+    });
+  }
+
   res.json({
     data: await service.list(req.query.date),
   });
@@ -201,9 +207,12 @@ async function statusChange(req, res, next) {
   res.status(200).json({ data });
 }
 
+async function readByNumber(req, res, next) {}
+
 module.exports = {
   list,
   create: [dataCheck, validate, create],
   read: [reservationExists, read],
   statusChange: [reservationExists, checkStatus, statusChange],
+  readByNumber,
 };

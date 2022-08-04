@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  clearTable,
-  listReservations,
-  listTable,
-  reservationStatusChange,
-} from "../utils/api";
+import { clearTable, listReservations, listTable } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { next, today, previous } from "../utils/date-time";
 import { useHistory } from "react-router";
@@ -16,6 +11,84 @@ import { Link } from "react-router-dom";
  *  the date for which the user wants to view reservations.
  * @returns {JSX.Element}
  */
+
+function SeatBtnDisplay({ reservation }) {
+  if (reservation.status === "booked") {
+    return (
+      <>
+        <td style={{ borderTop: "0" }}>
+          <Link
+            to={`/reservations/${reservation.reservation_id}/seat`}
+            type="button"
+            className="btn btn-info "
+            href={`/reservations/${reservation.reservation_id}/seat`}
+          >
+            Seat
+          </Link>
+        </td>
+        <td style={{ borderTop: "0" }}>
+          <Link
+            to={`/reservations/${reservation.reservation_id}/edit`}
+            type="button"
+            className="btn btn-info "
+            href={`/reservations/${reservation.reservation_id}/edit`}
+          >
+            Edit
+          </Link>
+        </td>
+        <td style={{ borderTop: "0" }}>
+          <button
+            type="button"
+            className="btn btn-info "
+            href={`/reservations/${reservation.reservation_id}`}
+          >
+            Cancel
+          </button>
+        </td>
+      </>
+    );
+  } else {
+    return null;
+  }
+}
+
+export function ResrVation({ reservations }) {
+  return (
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Reservation Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        {reservations.map((reservation) => {
+          return (
+            <tbody key={reservation.reservation_id}>
+              <tr>
+                <th scope="row">{reservation.reservation_id}</th>
+                <td>{reservation.first_name}</td>
+                <td>{reservation.last_name}</td>
+                <td>{reservation.mobile_number}</td>
+                <td>{reservation.reservation_date}</td>
+                <td>{reservation.reservation_time}</td>
+                <td data-reservation-id-status={reservation.reservation_id}>
+                  {reservation.status}
+                </td>
+                <SeatBtnDisplay reservation={reservation} />
+              </tr>
+            </tbody>
+          );
+        })}
+      </table>
+    </div>
+  );
+}
 
 export default function Dashboard({ date }) {
   const [reservations, setReservations] = useState([]);
@@ -70,83 +143,6 @@ export default function Dashboard({ date }) {
         >
           Today
         </button>
-      </div>
-    );
-  }
-
-  function SeatBtnDisplay({ reservation }) {
-    if (reservation.status === "booked") {
-      return (
-        <>
-          <td style={{ borderTop: "0" }}>
-            <Link
-              to={`/reservations/${reservation.reservation_id}/seat`}
-              type="button"
-              className="btn btn-info "
-              href={`/reservations/${reservation.reservation_id}/seat`}
-            >
-              Seat
-            </Link>
-          </td>
-          <td style={{ borderTop: "0" }}>
-            <button
-              type="button"
-              className="btn btn-info "
-              href={`/reservations/${reservation.reservation_id}`}
-            >
-              Edit
-            </button>
-          </td>
-          <td style={{ borderTop: "0" }}>
-            <button
-              type="button"
-              className="btn btn-info "
-              href={`/reservations/${reservation.reservation_id}`}
-            >
-              Cancel
-            </button>
-          </td>
-        </>
-      );
-    } else {
-      return null;
-    }
-  }
-
-  function ResrVation() {
-    return (
-      <div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Reservation Id</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Mobile Number</th>
-              <th scope="col">Date</th>
-              <th scope="col">Time</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          {reservations.map((reservation) => {
-            return (
-              <tbody key={reservation.reservation_id}>
-                <tr>
-                  <th scope="row">{reservation.reservation_id}</th>
-                  <td>{reservation.first_name}</td>
-                  <td>{reservation.last_name}</td>
-                  <td>{reservation.mobile_number}</td>
-                  <td>{reservation.reservation_date}</td>
-                  <td>{reservation.reservation_time}</td>
-                  <td data-reservation-id-status={reservation.reservation_id}>
-                    {reservation.status}
-                  </td>
-                  <SeatBtnDisplay reservation={reservation} />
-                </tr>
-              </tbody>
-            );
-          })}
-        </table>
       </div>
     );
   }
@@ -225,7 +221,7 @@ export default function Dashboard({ date }) {
 
       <div className="border bg-light p-3 border-dark mb-4 overflow-auto">
         <DateDisplay />
-        <ResrVation />
+        <ResrVation reservations={reservations} />
       </div>
 
       <div className="border bg-light p-3 border-dark overflow-auto">

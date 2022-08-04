@@ -51,9 +51,8 @@ export default function Reservation() {
     );
   }
 
-  return (
-    <>
-      <ErrorHandle />
+  function ReservationForm() {
+    return (
       <form onSubmit={onSubmit} className="mt-2">
         <div className="form-group">
           <label htmlFor="name">First Name</label>
@@ -138,6 +137,13 @@ export default function Reservation() {
           Submit
         </button>
       </form>
+    );
+  }
+
+  return (
+    <>
+      <ErrorHandle />
+      <ReservationForm />
     </>
   );
 }
