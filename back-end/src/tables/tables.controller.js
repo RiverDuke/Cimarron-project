@@ -34,6 +34,31 @@ function validate(req, res, next) {
   next();
 }
 
+async function tableIdExists(req, res, next) {
+  const table = await service.readTable(req.params.table_id);
+  if (!table) {
+    return next({
+      status: 404,
+      message: `table_id: ${req.params.table_id} does not exist`,
+    });
+  } else {
+    return next();
+  }
+}
+
+async function vacantCheck(req, res, next) {
+  const table = await service.readTable(req.params.table_id);
+
+  if (table.reservation_id) {
+    return next();
+  } else {
+    return next({
+      status: 400,
+      message: "Table is not occupied and cannot be cleared",
+    });
+  }
+}
+
 async function checkData(req, res, next) {
   if (!req.body.data) {
     return next({
@@ -99,8 +124,14 @@ async function update(req, res, next) {
   res.json({ data: "hello" });
 }
 
+async function destroy(req, res, next) {
+  await service.destroy(req.params.table_id);
+  res.sendStatus(200);
+}
+
 module.exports = {
   create: [validate, create],
   list,
   update: [checkData, update],
+  destroy: [tableIdExists, vacantCheck, destroy],
 };

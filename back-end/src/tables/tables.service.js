@@ -20,9 +20,16 @@ function readTable(tableId) {
   return knex("tables").select("*").where({ table_id: tableId }).first();
 }
 
+function destroy(Id) {
+  return knex("tables")
+    .where({ table_id: Id })
+    .update({ reservation_id: null });
+}
+
 module.exports = {
   create,
   list,
   update,
   readTable,
+  destroy,
 };
