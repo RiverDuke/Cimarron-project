@@ -167,7 +167,12 @@ function checkStatus(req, res, next) {
     });
   }
 
-  if (status === "booked" || status === "seated" || status === "finished") {
+  if (
+    status === "booked" ||
+    status === "seated" ||
+    status === "finished" ||
+    status === "cancelled"
+  ) {
     return next();
   }
 
@@ -178,9 +183,15 @@ function checkStatus(req, res, next) {
 }
 
 async function list(req, res) {
-  res.json({
-    data: await service.list(req.query.date),
-  });
+  if (req.query.mobile_number) {
+    return res.json({
+      data: await service.readNumber(req.query.mobile_number),
+    });
+  } else {
+    res.json({
+      data: await service.list(req.query.date),
+    });
+  }
 }
 
 async function create(req, res, next) {
@@ -201,9 +212,17 @@ async function statusChange(req, res, next) {
   res.status(200).json({ data });
 }
 
+async function update(req, res, next) {
+  console.log(req.params.reservation_id);
+  console.log(req.body.data);
+  const data = await service.update(req.params.reservation_id, req.body.data);
+  res.json({ data });
+}
+
 module.exports = {
   list,
   create: [dataCheck, validate, create],
   read: [reservationExists, read],
   statusChange: [reservationExists, checkStatus, statusChange],
+  update: [reservationExists, dataCheck, update],
 };
