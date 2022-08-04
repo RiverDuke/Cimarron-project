@@ -81,6 +81,7 @@ function Dashboard({ date }) {
               <th scope="col">Mobile Number</th>
               <th scope="col">Date</th>
               <th scope="col">Time</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           {reservations.map((reservation) => {
@@ -93,6 +94,9 @@ function Dashboard({ date }) {
                   <td>{reservation.mobile_number}</td>
                   <td>{reservation.reservation_date}</td>
                   <td>{reservation.reservation_time}</td>
+                  <td data-reservation-id-status={reservation.reservation_id}>
+                    {reservation.status}
+                  </td>
                   <td style={{ borderTop: "0" }}>
                     <Link
                       to={`/reservations/${reservation.reservation_id}/seat`}
