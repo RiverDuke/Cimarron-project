@@ -214,8 +214,6 @@ async function statusChange(req, res, next) {
 }
 
 async function update(req, res, next) {
-  console.log(req.params.reservation_id);
-  console.log(req.body.data);
   const data = await service.update(req.params.reservation_id, req.body.data);
   res.json({ data });
 }

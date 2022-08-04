@@ -1,6 +1,6 @@
 import { ResrVation } from "../dashboard/Dashboard";
 import React, { useState } from "react";
-import { listReservations, search } from "../utils/api";
+import { listReservations } from "../utils/api";
 
 export default function Search() {
   const initialState = {
@@ -12,7 +12,6 @@ export default function Search() {
   const [noMatch, setNoMatch] = useState("");
 
   function onChange({ target }) {
-    console.log("onChange");
     setData({
       ...data,
       [target.name]: target.value,
@@ -59,7 +58,6 @@ export default function Search() {
   }
 
   function handleSubmit(event) {
-    console.log("handleSubmit");
     event.preventDefault();
     setReservationsError(null);
     setNoMatch(null);
@@ -71,7 +69,6 @@ export default function Search() {
     }
   }
 
-  console.log(reservations);
   return (
     <>
       <h1 className="card-title">Search Reservations</h1>

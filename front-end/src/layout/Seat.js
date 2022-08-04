@@ -44,7 +44,6 @@ export default function Seat() {
 
     try {
       const res = await updateTable(data, params.reservation_id);
-      console.log(res);
       const body = await res.json();
 
       if (res.status >= 299 || res.status < 200) {

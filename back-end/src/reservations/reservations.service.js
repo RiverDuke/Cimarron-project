@@ -39,7 +39,6 @@ function readNumber(mobile_number) {
 }
 
 function update(Id, reservation) {
-  console.log("updateding");
   return knex("reservations")
     .update(reservation, "*")
     .where({ reservation_id: Id })

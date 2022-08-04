@@ -16,7 +16,6 @@ export default function NewTable() {
       ...data,
       [target.name]: target.value,
     });
-    console.log(data);
   }
 
   async function onSubmit(event) {

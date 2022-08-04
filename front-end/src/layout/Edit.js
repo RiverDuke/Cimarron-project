@@ -17,10 +17,6 @@ export default function Edit() {
   const history = useHistory();
 
   useEffect(() => {
-    // async function fetchData() {
-    //   await loadReservation;
-    // }
-    // fetchData();
     const ac = new AbortController();
     async function loadReservation() {
       const response = await readReservation(params.reservation_id, ac.signal);
@@ -56,13 +52,11 @@ export default function Edit() {
   }
 
   async function onSubmit(event) {
-    console.log("hello");
     event.preventDefault();
-    const updated = await updateReservation(params.reservation_id, data);
-    console.log(updated);
+    await updateReservation(params.reservation_id, data);
     history.push(`/dashboard?date=${data.reservation_date}`);
   }
-  console.log(data);
+
   return (
     <>
       <h1>Edit Reservation</h1>
