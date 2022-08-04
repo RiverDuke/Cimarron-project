@@ -1,4 +1,3 @@
-const { response } = require("express");
 const knex = require("../db/connection");
 
 function list(date) {
