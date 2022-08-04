@@ -45,6 +45,7 @@ async function reservationExists(req, res, next) {
   const resrVation = await service.read(req.params.reservation_id);
 
   if (resrVation) {
+    res.locals.resrVation = resrVation;
     return next();
   } else {
     return next({
@@ -69,6 +70,7 @@ function dataCheck(req, res, next) {
     reservation_date,
     reservation_time,
     people,
+    status,
   } = req.body.data;
 
   let date = new Date(reservation_date);
@@ -137,7 +139,42 @@ function dataCheck(req, res, next) {
     });
   }
 
+  if (status === "seated") {
+    return next({
+      status: 400,
+      message: "status cannot be seated",
+    });
+  }
+
+  if (status === "finished") {
+    return next({
+      status: 400,
+      message: "status cannot be finished",
+    });
+  }
+
   return next();
+}
+
+function checkStatus(req, res, next) {
+  const { status } = req.body.data;
+  const { resrVation } = res.locals;
+
+  if (resrVation.status === "finished") {
+    return next({
+      status: 400,
+      message: "a finished reservation cannot be updated",
+    });
+  }
+
+  if (status === "booked" || status === "seated" || status === "finished") {
+    return next();
+  }
+
+  return next({
+    status: 400,
+    message: "status unknown",
+  });
 }
 
 async function list(req, res) {
@@ -156,8 +193,17 @@ async function read(req, res, next) {
   res.json({ data });
 }
 
+async function statusChange(req, res, next) {
+  const data = await service.statusChange(
+    req.params.reservation_id,
+    req.body.data.status
+  );
+  res.status(200).json({ data });
+}
+
 module.exports = {
   list,
   create: [dataCheck, validate, create],
   read: [reservationExists, read],
+  statusChange: [reservationExists, checkStatus, statusChange],
 };

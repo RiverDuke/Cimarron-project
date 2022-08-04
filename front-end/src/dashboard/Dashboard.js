@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { clearTable, listReservations, listTable } from "../utils/api";
+import {
+  clearTable,
+  listReservations,
+  listTable,
+  reservationStatusChange,
+} from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { next, today, previous } from "../utils/date-time";
 import { useHistory } from "react-router";
@@ -12,7 +17,7 @@ import { Link } from "react-router-dom";
  * @returns {JSX.Element}
  */
 
-function Dashboard({ date }) {
+export default function Dashboard({ date }) {
   const [reservations, setReservations] = useState([]);
   const [reservationsError, setReservationsError] = useState(null);
   const [tables, setTables] = useState([]);
@@ -69,6 +74,45 @@ function Dashboard({ date }) {
     );
   }
 
+  function SeatBtnDisplay({ reservation }) {
+    if (reservation.status === "booked") {
+      return (
+        <>
+          <td style={{ borderTop: "0" }}>
+            <Link
+              to={`/reservations/${reservation.reservation_id}/seat`}
+              type="button"
+              className="btn btn-info "
+              href={`/reservations/${reservation.reservation_id}/seat`}
+            >
+              Seat
+            </Link>
+          </td>
+          <td style={{ borderTop: "0" }}>
+            <button
+              type="button"
+              className="btn btn-info "
+              href={`/reservations/${reservation.reservation_id}`}
+            >
+              Edit
+            </button>
+          </td>
+          <td style={{ borderTop: "0" }}>
+            <button
+              type="button"
+              className="btn btn-info "
+              href={`/reservations/${reservation.reservation_id}`}
+            >
+              Cancel
+            </button>
+          </td>
+        </>
+      );
+    } else {
+      return null;
+    }
+  }
+
   function ResrVation() {
     return (
       <div>
@@ -97,34 +141,7 @@ function Dashboard({ date }) {
                   <td data-reservation-id-status={reservation.reservation_id}>
                     {reservation.status}
                   </td>
-                  <td style={{ borderTop: "0" }}>
-                    <Link
-                      to={`/reservations/${reservation.reservation_id}/seat`}
-                      type="button"
-                      className="btn btn-info "
-                      href={`/reservations/${reservation.reservation_id}/seat`}
-                    >
-                      Seat
-                    </Link>
-                  </td>
-                  <td style={{ borderTop: "0" }}>
-                    <button
-                      type="button"
-                      className="btn btn-info "
-                      href={`/reservations/${reservation.reservation_id}`}
-                    >
-                      Edit
-                    </button>
-                  </td>
-                  <td style={{ borderTop: "0" }}>
-                    <button
-                      type="button"
-                      className="btn btn-info "
-                      href={`/reservations/${reservation.reservation_id}`}
-                    >
-                      Cancel
-                    </button>
-                  </td>
+                  <SeatBtnDisplay reservation={reservation} />
                 </tr>
               </tbody>
             );
@@ -163,6 +180,7 @@ function Dashboard({ date }) {
                         ) {
                           await clearTable(table.table_id);
                           loadTable();
+                          loadDashboard();
                         } else {
                           console.log("goodbye");
                         }
@@ -218,5 +236,3 @@ function Dashboard({ date }) {
     </main>
   );
 }
-
-export default Dashboard;

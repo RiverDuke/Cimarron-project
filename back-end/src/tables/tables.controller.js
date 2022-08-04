@@ -78,9 +78,6 @@ async function checkData(req, res, next) {
   const resrvation = await read(reservation_id);
   const table = await service.readTable(req.params.table_id);
 
-  console.log("table", table);
-  console.log("resrvation", resrvation);
-
   if (!resrvation) {
     return next({
       status: 404,
@@ -92,6 +89,13 @@ async function checkData(req, res, next) {
     return next({
       status: 400,
       message: "Party size is to large for tables capacity",
+    });
+  }
+
+  if (resrvation.status === "seated") {
+    return next({
+      status: 400,
+      message: "Reservation is already seated",
     });
   }
 
@@ -116,7 +120,6 @@ async function list(req, res, next) {
 }
 
 async function update(req, res, next) {
-  console.log(req.body.data);
   const data = await service.update(
     req.params.table_id,
     req.body.data.reservation_id
