@@ -194,11 +194,16 @@ export default function Dashboard({ date }) {
                             "Is this table ready to seat new guests? \n \n This cannont be undone."
                           )
                         ) {
-                          await clearTable(table.table_id);
-                          loadTable();
-                          loadDashboard();
+                          try {
+                            setReservationsError(null);
+                            await clearTable(table.table_id);
+                            loadTable();
+                            loadDashboard();
+                          } catch (err) {
+                            setReservationsError(err);
+                          }
                         } else {
-                          console.log("goodbye");
+                          // console.log("goodbye");
                         }
                       }}
                     >

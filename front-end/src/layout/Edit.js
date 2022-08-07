@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { readReservation, updateReservation } from "../utils/api";
 import formatReservationDate from "../utils/format-reservation-date";
+import ErrorAlert from "./ErrorAlert";
 
 export default function Edit() {
+  const [reservationsError, setReservationsError] = useState(null);
   const [data, setData] = useState({
     first_name: "",
     last_name: "",
@@ -53,13 +55,20 @@ export default function Edit() {
 
   async function onSubmit(event) {
     event.preventDefault();
-    await updateReservation(params.reservation_id, data);
+    setReservationsError(null);
+    try {
+      await updateReservation(params.reservation_id, data);
+    } catch (err) {
+      setReservationsError(err);
+    }
+
     history.push(`/dashboard?date=${data.reservation_date}`);
   }
 
   return (
     <>
       <h1>Edit Reservation</h1>
+      <ErrorAlert error={reservationsError} />
       <ReservationForm onChange={onChange} data={data} onSubmit={onSubmit} />
     </>
   );
