@@ -4,9 +4,14 @@ const service = require("./reservations.service");
 function validate(req, res, next) {
   const { data } = req.body;
 
-  //date formatted to be accurately compatible with getTime()
-  const date = new Date(`${data.reservation_date}T${data.reservation_time}`);
-  const today = new Date();
+  //date formatted to be accurately compatible with getTime(), toLocaleString() used to account for timezone
+  const localizedReservationDate = new Date(
+    `${data.reservation_date}T${data.reservation_time}`
+  ).toLocaleString();
+  const date = new Date(localizedReservationDate);
+
+  const localizedCurrentDay = new Date().toLocaleString();
+  const today = new Date(localizedCurrentDay);
   const day = date.getDay();
 
   //hours and minutes pulled from request body
