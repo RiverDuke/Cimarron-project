@@ -105,7 +105,7 @@ function Menu() {
   }
 
   return (
-    <nav className="navbar navbar-dark bg-dark d-flex justify-content-between ">
+    <nav className="navbar fixed-top d-flex justify-content-between ">
       <div className="menu-logo ">
         <p>Logo</p>
       </div>

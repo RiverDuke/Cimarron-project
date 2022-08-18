@@ -24,11 +24,15 @@
 .menu-icon:hover .sub-menu {
   display: block;
   position: absolute;
-  background: rgb(164, 101, 5);
+  background: blue;
   z-index: 1;
 }
 
 .menu-icon:hover .sub-menu ul {
   display: block;
   margin-right: 3px;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 1);
 }

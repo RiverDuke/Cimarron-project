@@ -9,7 +9,9 @@ import ErrorAlert from "../layout/ErrorAlert";
 import { next, today, previous } from "../utils/date-time";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-
+// import nightVibe from "../images/nightvibe.png";
+// import steakWithFork from "../images/steakWithFork.png";
+import "../css/dashboard.css";
 /**
  * Defines the dashboard page.
  * @param date
@@ -239,6 +241,7 @@ export default function Dashboard({ date }) {
 
   return (
     <main>
+      <div className="front-page-image"> YESSSIR</div>
       <h1>Dashboard</h1>
       <div className="d-md-flex mb-3">
         <h4 className="mb-0">Reservations for date</h4>
