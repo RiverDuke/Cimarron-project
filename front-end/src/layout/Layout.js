@@ -22,9 +22,9 @@ function Layout() {
       {/* <div className="navbar navbar-dark bg-dark menu"> */}
       <Menu />
       {/* </div> */}
-      <div className="col">
-        <Routes />
-      </div>
+      {/* <div className="col"> */}
+      <Routes />
+      {/* </div> */}
     </div>
   );
 }

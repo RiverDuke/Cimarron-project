@@ -241,7 +241,18 @@ export default function Dashboard({ date }) {
 
   return (
     <main>
-      <div className="front-page-image"> YESSSIR</div>
+      <figure className="front-page-image">
+        <figcaption className="">
+          Satisfy that Cimarron <br></br>Appetite
+        </figcaption>
+        <Link
+          id="newResLink"
+          className="btn btn-danger btn-lg"
+          to="/reservations/new"
+        >
+          New Reservation
+        </Link>
+      </figure>
       <h1>Dashboard</h1>
       <div className="d-md-flex mb-3">
         <h4 className="mb-0">Reservations for date</h4>
