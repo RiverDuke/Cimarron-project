@@ -9,7 +9,7 @@ import ErrorAlert from "../layout/ErrorAlert";
 import { next, today, previous } from "../utils/date-time";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-// import nightVibe from "../images/nightvibe.png";
+import logo from "../images/PlatedSlices.png";
 // import steakWithFork from "../images/steakWithFork.png";
 import "../css/dashboard.css";
 /**
@@ -242,16 +242,9 @@ export default function Dashboard({ date }) {
   return (
     <main>
       <figure className="front-page-image">
-        <figcaption className="">
-          Satisfy that Cimarron <br></br>Appetite
-        </figcaption>
-        <Link
-          id="newResLink"
-          className="btn btn-danger btn-lg"
-          to="/reservations/new"
-        >
-          New Reservation
-        </Link>
+        <nav>
+          <img src={logo} className="logo"></img>
+        </nav>
       </figure>
       <h1>Dashboard</h1>
       <div className="d-md-flex mb-3">

@@ -20,7 +20,7 @@ function Layout() {
   return (
     <div className="">
       {/* <div className="navbar navbar-dark bg-dark menu"> */}
-      <Menu />
+      {/* <Menu /> */}
       {/* </div> */}
       {/* <div className="col"> */}
       <Routes />
