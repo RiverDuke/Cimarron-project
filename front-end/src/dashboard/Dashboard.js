@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import logo from "../images/PlatedSlices.png";
 // import steakWithFork from "../images/steakWithFork.png";
 import "../css/dashboard.css";
+import { MenuIcon } from "../layout/Menu";
+
 /**
  * Defines the dashboard page.
  * @param date
@@ -242,8 +244,9 @@ export default function Dashboard({ date }) {
   return (
     <main>
       <figure className="front-page-image">
-        <nav>
+        <nav id="navbar">
           <img src={logo} className="logo"></img>
+          <MenuIcon />
         </nav>
       </figure>
       <h1>Dashboard</h1>
