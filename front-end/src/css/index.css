@@ -1,3 +1,4 @@
-body {
-  background-color: blue;
+.starterdiv {
+  position: absolute;
+  margin-top: 300px;
 }

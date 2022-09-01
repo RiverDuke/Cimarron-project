@@ -10,6 +10,7 @@ import NewTable from "./NewTable";
 import Seat from "./Seat";
 import Search from "./Search";
 import Edit from "./Edit";
+import Menu from "./Menu";
 /**
  * Defines all the routes for the application.
  *
@@ -24,7 +25,10 @@ function Routes() {
   return (
     <Switch>
       <Route exact={true} path="/">
-        <Redirect to={"/dashboard"} />
+        <Redirect to={"/home"} />
+      </Route>
+      <Route path="/home">
+        <Menu />
       </Route>
       <Route exact={true} path="/reservations">
         <Redirect to={"/dashboard"} />

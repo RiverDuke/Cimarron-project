@@ -242,13 +242,7 @@ export default function Dashboard({ date }) {
   }
 
   return (
-    <main>
-      <figure className="front-page-image">
-        <nav id="navbar">
-          <img src={logo} className="logo"></img>
-          <MenuIcon />
-        </nav>
-      </figure>
+    <main className="starterdiv">
       <h1>Dashboard</h1>
       <div className="d-md-flex mb-3">
         <h4 className="mb-0">Reservations for date</h4>

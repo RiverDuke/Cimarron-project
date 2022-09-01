@@ -1,7 +1,8 @@
 import { ResrVation } from "../dashboard/Dashboard";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { listReservations } from "../utils/api";
-
+import { useRouteMatch } from "react-router";
+import "../css/index.css";
 export default function Search() {
   const initialState = {
     mobile_number: "",
@@ -10,6 +11,16 @@ export default function Search() {
   const [reservations, setReservations] = useState([]);
   const [reservationsError, setReservationsError] = useState(null);
   const [noMatch, setNoMatch] = useState("");
+  const { url } = useRouteMatch();
+
+  useEffect(() => {
+    let navbar = document.getElementById("navbar");
+    // console.log(navbar.classList);
+    navbar.classList.remove("sticky");
+    navbar.classList.add("sticky");
+  }, []);
+
+  console.log(url);
 
   function onChange({ target }) {
     setData({
@@ -70,7 +81,7 @@ export default function Search() {
   }
 
   return (
-    <>
+    <div className="starterdiv">
       <h1 className="card-title">Search Reservations</h1>
       <ErrorHandle />
       <form className="form-group col-md-4 col-sm-12" onSubmit={handleSubmit}>
@@ -95,6 +106,6 @@ export default function Search() {
       </form>
       <ReservationDisplay />
       <NotFound />
-    </>
+    </div>
   );
 }

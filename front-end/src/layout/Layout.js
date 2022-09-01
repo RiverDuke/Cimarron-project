@@ -1,8 +1,9 @@
 import React from "react";
 import Menu from "./Menu";
 import Routes from "./Routes";
-
+import "../css/dashboard.css";
 import "../css/menus.css";
+import NavBar from "./Nav";
 
 /**
  * Defines the main layout of the application.
@@ -23,10 +24,16 @@ function Layout() {
       {/* <Menu /> */}
       {/* </div> */}
       {/* <div className="col"> */}
+      <NavBar />
       <Routes />
       {/* </div> */}
     </div>
   );
 }
+
+// let navbar = document.getElementById("navbar");
+// let menu = document.getElementById("menu");
+// let url = window.location.href;
+// console.log(url);
 
 export default Layout;

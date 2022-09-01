@@ -16,31 +16,8 @@
   padding: 3px;
 }
 
-.menu-icon svg {
-  width: 20px;
-}
-
-.menu-icon svg:hover {
-  fill: aqua;
-}
-
-.sub-menu {
-  display: none;
-}
-
-.menu-icon svg:hover .sub-menu {
-  display: block;
-  position: absolute;
-  background: blue;
-  z-index: 1;
-}
-
-.menu-icon:hover .sub-menu ul {
-  display: block;
-  margin-right: 3px;
-}
-
-.navbar {
+/* .navbar {
   background-color: #201e1e80;
   box-shadow: 1px 1px 1px black;
-}
+  z-index: 1;
+} */
