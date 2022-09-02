@@ -13,12 +13,12 @@ export default function Search() {
   const [noMatch, setNoMatch] = useState("");
   const { url } = useRouteMatch();
 
-  useEffect(() => {
-    let navbar = document.getElementById("navbar");
-    // console.log(navbar.classList);
-    navbar.classList.remove("sticky");
-    navbar.classList.add("sticky");
-  }, []);
+  // useEffect(() => {
+  //   let navbar = document.getElementById("navbar");
+  //   // console.log(navbar.classList);
+  //   navbar.classList.remove("sticky");
+  //   navbar.classList.add("sticky");
+  // }, []);
 
   console.log(url);
 

@@ -11,10 +11,17 @@ import { Link } from "react-router-dom";
 function Menu() {
   return (
     <>
-      <figure className="front-page-image"></figure>
+      <div className="front-page-image position container-fluid d-flex flex-column align-items-center">
+        <h3 className=" mx-auto font-italic text-white display-1 text-center pt-3">
+          "Satisy that Cimarron Appitite"
+        </h3>
+
+        <div className=" mt-auto mb-5">
+          <Link className=" btn btn-danger btn-lg ">Book A Reservation</Link>
+        </div>
+      </div>
 
       <div className="container">
-        <h3>"Satisy that Cimarron Appitite"</h3>
         <h1 className="">MENU</h1>
         <div className="row">
           <div class="card border-light m-2" style={{ width: "18rem" }}>
