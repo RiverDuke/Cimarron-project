@@ -6,8 +6,8 @@ export function ReservationForm({ onChange, data, onSubmit }) {
   const history = useHistory();
   return (
     <form onSubmit={onSubmit} className="mt-2">
-      <div className="form-group">
-        <label htmlFor="name">First Name</label>
+      <div className="form-group col-md-5 col-sm-12 mx-auto">
+        <label htmlFor="name">First Name:</label>
         <input
           name="first_name"
           type="text"
@@ -18,8 +18,8 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group">
-        <label htmlFor="name">Last Name</label>
+      <div className="form-group col-md-5 col-sm-12 mx-auto">
+        <label htmlFor="name">Last Name:</label>
         <input
           name="last_name"
           type="text"
@@ -30,8 +30,8 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group .col-6">
-        <label htmlFor="name">Mobile Number</label>
+      <div className="form-group col-md-5 col-sm-12 mx-auto">
+        <label htmlFor="name">Mobile Number:</label>
         <input
           name="mobile_number"
           type="text"
@@ -42,8 +42,8 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group">
-        <label htmlFor="reservation_date"> Reservation Date</label>
+      <div className="form-group col-md-5 col-sm-12 mx-auto">
+        <label htmlFor="reservation_date"> Reservation Date:</label>
         <input
           name="reservation_date"
           type="date"
@@ -54,8 +54,8 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group">
-        <label htmlFor="name"> Reservation Time</label>
+      <div className="form-group col-md-5 col-sm-12 mx-auto">
+        <label htmlFor="name"> Reservation Time:</label>
         <input
           name="reservation_time"
           type="time"
@@ -66,8 +66,8 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group">
-        <label htmlFor="name"> Party Size</label>
+      <div className="form-group col-md-2 col-sm-4 mx-auto">
+        <label htmlFor="name"> Party Size:</label>
         <input
           name="people"
           type="number"
@@ -78,16 +78,18 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <button
-        type="button"
-        className="btn btn-secondary mr-2"
-        onClick={() => history.goBack()}
-      >
-        Cancel
-      </button>
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
+      <div className="text-center">
+        <button
+          type="button"
+          className="btn btn-outline-dark mr-2 "
+          onClick={() => history.goBack()}
+        >
+          Cancel
+        </button>
+        <button type="submit" className="btn btn-outline-primary">
+          Submit
+        </button>
+      </div>
     </form>
   );
 }
@@ -141,9 +143,10 @@ export default function Reservation() {
   }
 
   return (
-    <>
+    <div className="container mt-3">
+      <h1 className="display-2 text-center">Create a Reservation</h1>
       <ErrorHandle />
       <ReservationForm onChange={onChange} data={data} onSubmit={onSubmit} />
-    </>
+    </div>
   );
 }

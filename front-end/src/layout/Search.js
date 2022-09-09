@@ -1,4 +1,6 @@
 import { ResrVation } from "../dashboard/Dashboard";
+import "../css/menus.css";
+import "../css/dashboard.css";
 import React, { useState, useEffect } from "react";
 import { listReservations } from "../utils/api";
 import { useRouteMatch } from "react-router";
@@ -12,13 +14,6 @@ export default function Search() {
   const [reservationsError, setReservationsError] = useState(null);
   const [noMatch, setNoMatch] = useState("");
   const { url } = useRouteMatch();
-
-  // useEffect(() => {
-  //   let navbar = document.getElementById("navbar");
-  //   // console.log(navbar.classList);
-  //   navbar.classList.remove("sticky");
-  //   navbar.classList.add("sticky");
-  // }, []);
 
   console.log(url);
 
@@ -81,11 +76,16 @@ export default function Search() {
   }
 
   return (
-    <div className="starterdiv">
-      <h1 className="card-title">Search Reservations</h1>
+    <div className="container-fluid mt-3">
+      <h1 className="card-title text-center display-2">Search Reservations</h1>
       <ErrorHandle />
-      <form className="form-group col-md-4 col-sm-12" onSubmit={handleSubmit}>
-        <label htmlFor="mobile_number">Mobile Number:</label>
+      <form
+        className="form-group col-md-5 col-sm-12 mx-auto"
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="mobile_number" style={{ fontSize: "30px" }}>
+          Mobile Number:
+        </label>
         <div className="input-group">
           <input
             type="text"

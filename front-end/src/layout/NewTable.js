@@ -48,12 +48,12 @@ export default function NewTable() {
   }
 
   return (
-    <>
-      <h1>Add Table</h1>
+    <div className="container mt-3">
+      <h1 className="display-2 text-center">Add Table</h1>
       <ErrorHandle />
       <form className="mt-2" onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Table Name</label>
+        <div className="form-group col-md-5 col-sm-12 mx-auto">
+          <label htmlFor="name">Table Name:</label>
           <input
             name="table_name"
             type="text"
@@ -65,8 +65,8 @@ export default function NewTable() {
           ></input>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="capacity">Capacity</label>
+        <div className="form-group col-md-5 col-sm-12 mx-auto">
+          <label htmlFor="capacity">Capacity:</label>
           <input
             name="capacity"
             type="number"
@@ -78,18 +78,20 @@ export default function NewTable() {
           ></input>
         </div>
 
-        <button
-          type="button"
-          className="btn btn-warning mr-2"
-          onClick={() => history.goBack()}
-        >
-          Cancel
-        </button>
+        <div className="text-center">
+          <button
+            type="button"
+            className="btn btn-outline-dark mr-2"
+            onClick={() => history.goBack()}
+          >
+            Cancel
+          </button>
 
-        <button type="submit" className="btn btn-danger">
-          Submit
-        </button>
+          <button type="submit" className="btn btn-outline-danger">
+            Submit
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }

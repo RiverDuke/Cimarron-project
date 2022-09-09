@@ -7,6 +7,7 @@ import cheesCake from "../images/cheeseCake.jpeg";
 import burgerPic from "../images/Burger.jpeg";
 import chickenPic from "../images/as-baked-chicken-threeByTwoMediumAt2X.jpeg";
 import saladPic from "../images/Simple-Green-Salad-with-Vinaigrette-Square-FS-3241.jpeg";
+import mapPic from "../images/map.png";
 /**
  * Defines the menu for this application.
  *
@@ -16,13 +17,16 @@ import saladPic from "../images/Simple-Green-Salad-with-Vinaigrette-Square-FS-32
 function Menu() {
   return (
     <>
-      <div className="jumbotron front-page-image position container-fluid d-flex flex-column align-items-center">
-        <h3 className="lead mx-auto font-italic text-white display-1 text-center pt-3">
-          "Satisfy that Cimarron Appitite"
-        </h3>
-
-        <div className=" mt-auto mb-5">
-          <Link className=" btn btn-danger btn-lg ">Book A Reservation</Link>
+      <div className="jumbotron front-page-image container-fluid d-flex flex-column ">
+        <div className="mt-auto mb-auto mx-auto">
+          <h3 className="lead font-italic text-white display-1 mb-5 ">
+            "Satisfy that Cimarron Appitite"
+          </h3>
+          <div className="mb-5 justify-content-center text-center">
+            <Link className=" btn btn-danger btn-lg " to="/reservations/new">
+              Book A Reservation
+            </Link>
+          </div>
         </div>
       </div>
       <div className="container menu">
@@ -32,13 +36,14 @@ function Menu() {
             <img
               src={fancyplate}
               class="card-img-top img-thumbnail"
-              alt="..."
+              alt="Filet Mignon"
             />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Filet Mignon</h5>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                The Filet Mignon. Favored by many for its melt-in-your-mouth
+                texture, a filet is one of the most popular cuts of beef you can
+                find
               </p>
             </div>
           </div>
@@ -46,33 +51,38 @@ function Menu() {
             <img
               src={smoothiePic}
               class="card-img-top img-thumbnail"
-              alt="..."
+              alt="Smoothie"
             />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Smoothie</h5>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Fresh Squeezed Orange Juice, Pineapple Juice, or Apple juice
+                used to make a perfectly blended smoothie
               </p>
             </div>
           </div>
           <div class="card border-0 m-4" style={{ width: "18rem" }}>
             <img src={cheesCake} class="card-img-top img-thumbnail" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Cheesecake</h5>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Our legendary creamy California cheesecake baked on a golden
+                graham cracker crumb
               </p>
             </div>
           </div>
           <div class="card border-0 m-4" style={{ width: "18rem" }}>
-            <img src={burgerPic} class="card-img-top img-thumbnail" alt="..." />
+            <img
+              src={burgerPic}
+              class="card-img-top img-thumbnail"
+              alt="Burger"
+            />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Black Angus Burger</h5>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Hand-formed, 6 oz., Angus patty, stacked with Applewood-smoked
+                bacon, Cheddar cheese, lettuce, tomato, onion and house-made
+                pickles
               </p>
             </div>
           </div>
@@ -80,23 +90,22 @@ function Menu() {
             <img
               src={chickenPic}
               class="card-img-top img-thumbnail"
-              alt="..."
+              alt="Chicken Legs"
             />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Chicken Legs</h5>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                A chicken leg extends from the claw to what would be the
+                animal's hip, a prime and highly favored piece of the bird
               </p>
             </div>
           </div>
           <div class="card border-0 m-4" style={{ width: "18rem" }}>
             <img src={saladPic} class="card-img-top img-thumbnail" alt="..." />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Classic Salad</h5>
               <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                This salad has all the perfect blends of all the best textures
               </p>
             </div>
           </div>
@@ -136,6 +145,26 @@ function Menu() {
           </div>
         </div>
       </div>
+      <div class="jumbotron menu vibe-image">
+        <h1 class="lead mx-auto font-italic text-white display-1 text-center pt-3">
+          Enjoy our Fine Dining
+        </h1>
+      </div>
+      <div className="menu d-flex flex-column align-items-center">
+        <h1 className="text-center display-2">Location :</h1>
+        <h3>1275 Embarcadero Morro Bay, CA 93442</h3>
+        <img
+          src={mapPic}
+          class="img-thumbnail  rounded mx-auto d-block google-map"
+          alt="Google map image"
+        ></img>
+        <div className="book-button">
+          <Link className=" btn btn-danger btn-lg" to="/reservations/new">
+            Book A Reservation
+          </Link>
+        </div>
+      </div>
+      <div class="navbar navbar-expand-lg hello footer"></div>
     </>
   );
 }

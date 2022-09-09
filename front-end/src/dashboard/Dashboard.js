@@ -9,10 +9,7 @@ import ErrorAlert from "../layout/ErrorAlert";
 import { next, today, previous } from "../utils/date-time";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import logo from "../images/PlatedSlices.png";
-// import steakWithFork from "../images/steakWithFork.png";
 import "../css/dashboard.css";
-import { MenuIcon } from "../layout/Menu";
 
 /**
  * Defines the dashboard page.
@@ -30,7 +27,7 @@ function SeatBtnDisplay({ reservation }) {
           <Link
             to={`/reservations/${reservation.reservation_id}/seat`}
             type="button"
-            className="btn btn-info "
+            className="btn btn-outline-primary "
             href={`/reservations/${reservation.reservation_id}/seat`}
           >
             Seat
@@ -40,7 +37,7 @@ function SeatBtnDisplay({ reservation }) {
           <Link
             to={`/reservations/${reservation.reservation_id}/edit`}
             type="button"
-            className="btn btn-info "
+            className="btn btn-outline-primary "
             href={`/reservations/${reservation.reservation_id}/edit`}
           >
             Edit
@@ -49,7 +46,7 @@ function SeatBtnDisplay({ reservation }) {
         <td style={{ borderTop: "0" }}>
           <button
             type="button"
-            className="btn btn-info "
+            className="btn btn-outline-primary "
             data-reservation-id-cancel={reservation.reservation_id}
             onClick={async () => {
               if (window.confirm("Do you want to cancel this reservation?")) {
@@ -138,123 +135,133 @@ export default function Dashboard({ date }) {
 
   function DateDisplay() {
     return (
-      <div className="d-flex row mb-2">
-        <button
-          type="button"
-          className="btn btn-info ml-3"
-          onClick={() => {
-            history.push(`/dashboard?date=${previous(date)}`);
-          }}
-        >
-          Previous
-        </button>
-        <h4 className="ml-1">{date}</h4>
-        <button
-          type="button"
-          className="btn btn-info ml-1"
-          onClick={() => {
-            history.push(`/dashboard?date=${next(date)}`);
-          }}
-        >
-          Next
-        </button>
-        <button
-          type="button"
-          className="btn btn-warning ml-auto mr-3"
-          onClick={() => {
-            history.push(`/dashboard?date=${today()}`);
-          }}
-        >
-          Today
-        </button>
+      <div className="d-flex row mb-4 justify-content-center">
+        {/* <h4 className="ml-1 display-4">{date}</h4> */}
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={() => {
+              history.push(`/dashboard?date=${previous(date)}`);
+            }}
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-dark"
+            onClick={() => {
+              history.push(`/dashboard?date=${today()}`);
+            }}
+          >
+            Today
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={() => {
+              history.push(`/dashboard?date=${next(date)}`);
+            }}
+          >
+            Next
+          </button>
+        </div>
       </div>
     );
   }
 
   function Tables() {
     return (
-      <div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Table Id</th>
-              <th scope="col">Table Name</th>
-              <th scope="col">Capacity</th>
-              <th scope="col">Availablity</th>
-            </tr>
-          </thead>
-          {tables.map((table) => {
-            function Finish() {
-              if (table.reservation_id) {
-                return (
-                  <td style={{ borderTop: "0" }}>
-                    <button
-                      type="button"
-                      className="btn btn-info "
-                      data-table-id-finish={table.table_id}
-                      onClick={async () => {
-                        if (
-                          window.confirm(
-                            "Is this table ready to seat new guests? \n \n This cannont be undone."
-                          )
-                        ) {
-                          try {
-                            setReservationsError(null);
-                            await clearTable(table.table_id);
-                            loadTable();
-                            loadDashboard();
-                          } catch (err) {
-                            setReservationsError(err);
-                          }
-                        } else {
-                          // console.log("goodbye");
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Table Id</th>
+            <th scope="col">Table Name</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Availablity</th>
+          </tr>
+        </thead>
+        {tables.map((table) => {
+          function Finish() {
+            if (table.reservation_id) {
+              return (
+                <td style={{ borderTop: "0" }}>
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary"
+                    data-table-id-finish={table.table_id}
+                    onClick={async () => {
+                      if (
+                        window.confirm(
+                          "Is this table ready to seat new guests? \n \n This cannont be undone."
+                        )
+                      ) {
+                        try {
+                          setReservationsError(null);
+                          await clearTable(table.table_id);
+                          loadTable();
+                          loadDashboard();
+                        } catch (err) {
+                          setReservationsError(err);
                         }
-                      }}
-                    >
-                      finish
-                    </button>
-                  </td>
-                );
-              } else {
-                return null;
-              }
-            }
-            return (
-              <tbody key={table.table_id}>
-                <tr>
-                  <th scope="row">{table.table_id}</th>
-                  <td>{table.table_name}</td>
-                  <td>{table.capacity}</td>
-                  <td
-                    data-table-id-status={table.table_id}
-                    style={{ paddingLeft: "36px" }}
+                      } else {
+                        // console.log("goodbye");
+                      }
+                    }}
                   >
-                    {table.reservation_id ? "Occupied" : "Free"}
-                  </td>
-                  <Finish />
-                </tr>
-              </tbody>
-            );
-          })}
-        </table>
-      </div>
+                    finish
+                  </button>
+                </td>
+              );
+            } else {
+              return null;
+            }
+          }
+          return (
+            <tbody key={table.table_id}>
+              <tr>
+                <th scope="row">{table.table_id}</th>
+                <td>{table.table_name}</td>
+                <td>{table.capacity}</td>
+                <td
+                  data-table-id-status={table.table_id}
+                  style={{ paddingLeft: "36px" }}
+                >
+                  {table.reservation_id ? "Occupied" : "Free"}
+                </td>
+                <Finish />
+              </tr>
+            </tbody>
+          );
+        })}
+      </table>
     );
   }
 
   return (
-    <main className="starterdiv">
-      <h1>Dashboard</h1>
-      <div className="d-md-flex mb-3">
-        <h4 className="mb-0">Reservations for date</h4>
+    <main className="container mt-3">
+      <h1 className="d-block text-center display-2 ">Dashboard</h1>
+
+      <div className="d-md-flex mb-3 flex-column text-center">
+        <h4 className="mb-0">Display reservations by date</h4>
+        <h4 className="ml-1 display-4">{date}</h4>
       </div>
 
-      <div className="border bg-light p-3 border-dark mb-4 overflow-auto">
-        <DateDisplay />
-        <ResrVation reservations={reservations} loadDashboard={loadDashboard} />
-      </div>
+      <DateDisplay />
 
-      <div className="border bg-light p-3 border-dark overflow-auto">
-        <Tables />
+      <div className="">
+        <div className=" p-3 mb-4 overflow-auto mr-2">
+          <h3 className="text-center">Reservation List</h3>
+          <ResrVation
+            reservations={reservations}
+            loadDashboard={loadDashboard}
+          />
+        </div>
+
+        <div className=" ml-2 p-3 overflow-auto">
+          <h3 className="text-center">Tables</h3>
+          <Tables />
+        </div>
       </div>
 
       <ErrorAlert error={reservationsError} />
