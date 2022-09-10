@@ -18,11 +18,14 @@ function Menu() {
   return (
     <>
       <div className="jumbotron front-page-image container-fluid d-flex flex-column ">
-        <div className="mt-auto mb-auto mx-auto">
-          <h3 className="lead font-italic text-white display-1 mb-5 ">
+        <div className=" mb-auto mx-auto" style={{ marginTop: "80px" }}>
+          <h3
+            className="lead font-italic text-white display-1"
+            style={{ fontSize: "110px" }}
+          >
             "Satisfy that Cimarron Appitite"
           </h3>
-          <div className="mb-5 justify-content-center text-center">
+          <div className="mt-5 mb-5 justify-content-center text-center">
             <Link className=" btn btn-danger btn-lg " to="/reservations/new">
               Book A Reservation
             </Link>
@@ -153,17 +156,22 @@ function Menu() {
       <div className="menu d-flex flex-column align-items-center">
         <h1 className="text-center display-2">Location :</h1>
         <h3>1275 Embarcadero Morro Bay, CA 93442</h3>
-        <img
-          src={mapPic}
-          class="img-thumbnail  rounded mx-auto d-block google-map"
-          alt="Google map image"
-        ></img>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.369511933498!2d-120.86027008452272!3d35.37129028026763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ece1a2cc3110f1%3A0x96581af69bb0a660!2sColeman%20Park!5e0!3m2!1sen!2sus!4v1662768132329!5m2!1sen!2sus"
+          width="600"
+          height="450"
+          style={{ border: "0" }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
         <div className="book-button">
           <Link className=" btn btn-danger btn-lg" to="/reservations/new">
             Book A Reservation
           </Link>
         </div>
       </div>
+
       <div class="navbar navbar-expand-lg hello footer"></div>
     </>
   );

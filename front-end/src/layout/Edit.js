@@ -67,10 +67,10 @@ export default function Edit() {
   }
 
   return (
-    <>
-      <h1>Edit Reservation</h1>
+    <div className="container mt-3">
+      <h1 className="display-2 text-center">Edit Reservation</h1>
       <ErrorAlert error={reservationsError} />
       <ReservationForm onChange={onChange} data={data} onSubmit={onSubmit} />
-    </>
+    </div>
   );
 }

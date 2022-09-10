@@ -58,16 +58,34 @@ export default function Seat() {
 
   function DisplayReservtion() {
     return (
-      <div className="alert alert-success mt-3" role="alert">
-        <div className="d-flex justify-content-center ">
-          <h4 className="mr-3 my-auto">{`Reservation Id: #${reservation.reservation_id}`}</h4>
-          <h4 className="ml-3 my-auto">{`Name: ${reservation.first_name} ${reservation.last_name}`}</h4>
+      <div className=" d-flex text-align-center flex-column" role="alert">
+        <div className="d-flex mx-auto">
+          <h4>Reservation Id:</h4>
+          <h4 className="text-success">
+            &nbsp;{`#${reservation.reservation_id}`}
+          </h4>
         </div>
-        <hr />
-        <div className="d-flex justify-content-around ">
-          <h4 className="my-auto">{`Date: ${reservation.reservation_date}`}</h4>
-          <h4 className="my-auto">{`Party of: ${reservation.people}`}</h4>
-          <h4 className="my-auto">{`Time: ${reservation.reservation_time}`}</h4>
+        <div className="d-flex mx-auto">
+          <h4>Name:</h4>
+          <h4 className="text-success">
+            &nbsp;{`${reservation.first_name} ${reservation.last_name}`}
+          </h4>
+        </div>
+        <div className="d-flex mx-auto">
+          <h4>Date:</h4>
+          <h4 className="text-success">
+            &nbsp;{`${reservation.reservation_date}`}
+          </h4>
+        </div>
+        <div className="d-flex mx-auto">
+          <h4>Party of:</h4>
+          <h4 className="text-success">&nbsp;{`${reservation.people}`}</h4>
+        </div>
+        <div className="d-flex mx-auto">
+          <h4>Time:</h4>
+          <h4 className="text-success">
+            &nbsp;{`${reservation.reservation_time}`}
+          </h4>
         </div>
       </div>
     );
@@ -76,7 +94,7 @@ export default function Seat() {
   function SeatSelect() {
     return (
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-group col-md-4 col-sm-4 mx-auto">
           <label htmlFor="table_id">Seat at:</label>
           <select
             name="table_id"
@@ -92,6 +110,7 @@ export default function Seat() {
                 <option
                   key={table.table_id}
                   value={table.table_id}
+                  // className="text-success"
                 >{`${table.table_name} - ${table.capacity}`}</option>
               );
             })}
@@ -99,12 +118,12 @@ export default function Seat() {
         </div>
         <button
           type="button"
-          className="btn btn-dark mr-2"
+          className="btn btn-outline-dark mr-2"
           onClick={() => history.goBack()}
         >
           Cancel
         </button>
-        <button type="submit" className="btn btn-success">
+        <button type="submit" className="btn btn-outline-success">
           Submit
         </button>
       </form>
@@ -122,11 +141,11 @@ export default function Seat() {
   }
 
   return (
-    <>
-      <h1 className="text-center">Currently Seating</h1>
+    <div className="container mt-3 text-center">
+      <h1 className=" display-2">Currently Seating</h1>
       <ErrorHandle />
       <DisplayReservtion />
       <SeatSelect />
-    </>
+    </div>
   );
 }
