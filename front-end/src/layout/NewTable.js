@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { createTable } from "../utils/api";
+import tablePic from "../images/table-layout-1.png";
 
 export default function NewTable() {
   const initialValue = {
@@ -51,47 +52,61 @@ export default function NewTable() {
     <div className="container mt-3">
       <h1 className="display-2 text-center">Add Table</h1>
       <ErrorHandle />
-      <form className="mt-2" onSubmit={onSubmit}>
-        <div className="form-group col-md-5 col-sm-12 mx-auto">
-          <label htmlFor="name">Table Name:</label>
-          <input
-            name="table_name"
-            type="text"
-            className="form-control"
-            id="name"
-            onChange={onChange}
-            value={data.table_name}
-            required
-          ></input>
-        </div>
+      <div className="row mt-5">
+        <img src={tablePic} class="col-12 col-md-6" alt="Table-Layout"></img>
+        <div className="col-12 col-md-6">
+          <form className="" onSubmit={onSubmit}>
+            <div className="form-group col-md-8 col-sm-12 mx-auto">
+              <label htmlFor="name">
+                <h4 className="m-0 font-weight-light">Table Name:</h4>
+              </label>
+              <input
+                name="table_name"
+                type="text"
+                className="form-control"
+                id="name"
+                onChange={onChange}
+                value={data.table_name}
+                required
+              ></input>
+            </div>
 
-        <div className="form-group col-md-5 col-sm-12 mx-auto">
-          <label htmlFor="capacity">Capacity:</label>
-          <input
-            name="capacity"
-            type="number"
-            className="form-control"
-            id="capacity"
-            onChange={onChange}
-            value={data.capacity}
-            required
-          ></input>
-        </div>
+            <div className="form-group col-md-8 col-sm-12 mx-auto">
+              <label htmlFor="capacity">
+                <h4 className="m-0 font-weight-light">Capacity:</h4>
+              </label>
+              <input
+                name="capacity"
+                type="number"
+                className="form-control"
+                id="capacity"
+                onChange={onChange}
+                value={data.capacity}
+                required
+              ></input>
+            </div>
 
-        <div className="text-center">
-          <button
-            type="button"
-            className="btn btn-outline-dark mr-2"
-            onClick={() => history.goBack()}
-          >
-            Cancel
-          </button>
+            <div className="text-center">
+              <button
+                type="button"
+                className="btn btn-outline-dark mr-2"
+                onClick={() => history.goBack()}
+              >
+                Cancel
+              </button>
 
-          <button type="submit" className="btn btn-outline-danger">
-            Submit
-          </button>
+              <button type="submit" className="btn btn-outline-danger">
+                Submit
+              </button>
+            </div>
+          </form>
+
+          <p className="mt-5 text-center font-italic">
+            *Clicking submit creates a table allowing guests to be seated at
+            said table(see Manage bookings to seat guests)
+          </p>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

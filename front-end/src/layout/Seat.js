@@ -104,7 +104,7 @@ export default function Seat() {
             value={data}
             required
           >
-            <option value="">-- Select an Option --</option>
+            <option value="">-- Select a Table --</option>
             {tables.map((table) => {
               return (
                 <option

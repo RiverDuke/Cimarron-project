@@ -209,7 +209,7 @@ export default function Dashboard({ date }) {
                       }
                     }}
                   >
-                    finish
+                    Finished Eating
                   </button>
                 </td>
               );
@@ -240,7 +240,7 @@ export default function Dashboard({ date }) {
 
   return (
     <main className="container mt-3">
-      <h1 className="d-block text-center display-2 ">Dashboard</h1>
+      <h1 className="d-block text-center display-2 ">Manage Bookings</h1>
 
       <div className="d-md-flex mb-3 flex-column text-center">
         <h4 className="mb-0">Display reservations by date</h4>

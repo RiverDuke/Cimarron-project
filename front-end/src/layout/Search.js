@@ -1,9 +1,8 @@
 import { ResrVation } from "../dashboard/Dashboard";
 import "../css/menus.css";
 import "../css/dashboard.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { listReservations } from "../utils/api";
-import { useRouteMatch } from "react-router";
 import "../css/index.css";
 export default function Search() {
   const initialState = {
@@ -13,9 +12,6 @@ export default function Search() {
   const [reservations, setReservations] = useState([]);
   const [reservationsError, setReservationsError] = useState(null);
   const [noMatch, setNoMatch] = useState("");
-  const { url } = useRouteMatch();
-
-  console.log(url);
 
   function onChange({ target }) {
     setData({
