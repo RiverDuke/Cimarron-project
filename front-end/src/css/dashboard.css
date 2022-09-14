@@ -1,9 +1,10 @@
 .front-page-image {
-  background-image: url(../images/darkSteak.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/darkSteak.png);
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 93vh;
+  height: 90vh;
   position: static;
 }
 

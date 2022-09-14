@@ -30,7 +30,7 @@ function Menu() {
         <div className=" mt-auto mb-auto mx-auto" style={{ marginTop: "80px" }}>
           <h3
             className="lead font-italic text-white display-1 text-center"
-            style={{ fontSize: "110px" }}
+            style={{ fontSize: "120px" }}
           >
             "Satisfy that Cimarron Appitite"
           </h3>
@@ -41,7 +41,7 @@ function Menu() {
           </div>
         </div>
       </div>
-      <div className="container menu">
+      <div className="container-fluid menu">
         <h1 className="d-block text-center display-2 ">MENU</h1>
         <div className="row d-flex justify-content-center">
           <div className="card border-0 m-4" style={{ width: "18rem" }}>
@@ -141,8 +141,13 @@ function Menu() {
         >
           View our Menu
         </button>
+        {/* <div class="box-1 bg-dark">
+          <div class="btn btn-one">
+            <span>HOVER ME</span>
+          </div>
+        </div> */}
       </div>
-
+      <hr className="style-two m-5"></hr>
       <div
         className="modal fade mr-3 "
         id="exampleModal"
