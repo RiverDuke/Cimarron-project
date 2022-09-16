@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { createReservation } from "../utils/api";
+import resPic from "../images/steakhouse-style-rib-eyes-ft-recipe1118.jpg";
 
 export function ReservationForm({ onChange, data, onSubmit }) {
   const history = useHistory();
   return (
-    <form onSubmit={onSubmit} className="mt-2">
-      <div className="form-group col-md-5 col-sm-12 mx-auto">
+    <form onSubmit={onSubmit} className="">
+      <div className="form-group col-md-7 col-sm-12 mx-auto">
         <label htmlFor="name">First Name:</label>
         <input
           name="first_name"
@@ -18,7 +19,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-5 col-sm-12 mx-auto">
+      <div className="form-group col-md-7 col-sm-12 mx-auto">
         <label htmlFor="name">Last Name:</label>
         <input
           name="last_name"
@@ -30,7 +31,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-5 col-sm-12 mx-auto">
+      <div className="form-group col-md-7 col-sm-12 mx-auto">
         <label htmlFor="name">Mobile Number:</label>
         <input
           name="mobile_number"
@@ -42,7 +43,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-5 col-sm-12 mx-auto">
+      <div className="form-group col-md-7 col-sm-12 mx-auto">
         <label htmlFor="reservation_date"> Reservation Date:</label>
         <input
           name="reservation_date"
@@ -54,7 +55,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-5 col-sm-12 mx-auto">
+      <div className="form-group col-md-7 col-sm-12 mx-auto">
         <label htmlFor="name"> Reservation Time:</label>
         <input
           name="reservation_time"
@@ -66,7 +67,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-2 col-sm-4 mx-auto">
+      <div className="form-group col-md-3 col-sm-4 mx-auto">
         <label htmlFor="name"> Party Size:</label>
         <input
           name="people"
@@ -146,7 +147,31 @@ export default function Reservation() {
     <div className="container mt-3">
       <h1 className="display-2 text-center">Create a Reservation</h1>
       <ErrorHandle />
-      <ReservationForm onChange={onChange} data={data} onSubmit={onSubmit} />
+      <div className="row mt-4">
+        <div className="col-12 col-md-6 text-center">
+          <img
+            src={resPic}
+            class="img-fluid"
+            alt="Table-Layout"
+            style={{
+              width: "500px",
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          ></img>
+          <p className="mt-3 font-italic">
+            *New reservations are visible and can be managed on the Manage
+            Bookings page(seat reservations at a table when ready)
+          </p>
+        </div>
+        <div className="col-12 col-md-6 mb-5">
+          <ReservationForm
+            onChange={onChange}
+            data={data}
+            onSubmit={onSubmit}
+          />
+        </div>
+      </div>
     </div>
   );
 }

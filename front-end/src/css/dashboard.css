@@ -9,10 +9,18 @@
 }
 
 .vibe-image {
-  background-image: url(../images/firepic.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
+    url(../images/firepic.png);
   background-position: center;
   background-size: cover;
   height: 90vh;
+  position: static;
+}
+
+.vibe-image2 {
+  background-image: url(../images/firepic.png);
+  background-position: center;
+  background-size: cover;
   position: static;
 }
 
@@ -26,14 +34,6 @@
   width: 5000px;
 }
 
-/* nav {
-  width: 100%;
-  padding: 20px 0;
-  text-align: center;
-  z-index: 1000;
-  position: absolute;
-} */
-
 .navshadow {
   box-shadow: 0px 1px 10px 2px #909090;
 }
@@ -42,19 +42,3 @@
   width: 150px;
   cursor: pointer;
 }
-
-/* .sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px 8%;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: padding 1s;
-} */
-
-/* nav.sticky .menu-icon {
-  width: auto;
-} */

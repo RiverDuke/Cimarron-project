@@ -7,6 +7,7 @@ import cheesCake from "../images/cheeseCake.jpeg";
 import burgerPic from "../images/Burger.jpeg";
 import chickenPic from "../images/as-baked-chicken-threeByTwoMediumAt2X.jpeg";
 import saladPic from "../images/Simple-Green-Salad-with-Vinaigrette-Square-FS-3241.jpeg";
+import streetView from "../images/StreatView.png";
 
 /**
  * Defines the menu for this application.
@@ -135,7 +136,7 @@ function Menu() {
       <div className="d-flex m-3">
         <button
           type="button"
-          className="btn btn-primary mx-auto"
+          className="btn btn-lg btn-outline-primary mx-auto"
           data-toggle="modal"
           data-target="#exampleModal"
         >
@@ -170,24 +171,37 @@ function Menu() {
           </div>
         </div>
       </div>
-      <div className="jumbotron menu vibe-image mx-5 d-flex">
-        <h1 className=" font-italic text-white display-1 align-middle mx-auto">
-          Enjoy our Fine Dining
-        </h1>
+      <h1 className=" font-italic display-1 text-center">Dine With Us!</h1>
+      <div className="jumbotron menu vibe-image mx-5 d-flex container mx-auto">
+        <h3 className="text-white mt-auto mb-5">
+          Our top chef Anthony preparing his grill
+        </h3>
       </div>
       <div className="menu d-flex flex-column align-items-center">
-        <h1 className="text-center display-2">Location :</h1>
-        <h3>1275 Embarcadero Morro Bay, CA 93442</h3>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.369511933498!2d-120.86027008452272!3d35.37129028026763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80ece1a2cc3110f1%3A0x96581af69bb0a660!2sColeman%20Park!5e0!3m2!1sen!2sus!4v1662768132329!5m2!1sen!2sus"
-          width="600"
-          height="450"
-          style={{ border: "0" }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Google-Map"
-        ></iframe>
+        <h1 className="text-center display-2">Located in California</h1>
+        <h3>Manhattan Beach, CA 90266</h3>
+        <div className="d-flex">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26496.04952670603!2d-118.40114254999999!3d33.889494400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b3c5e2b0632f%3A0x70351d4f4154520!2sManhattan%20Beach%2C%20CA%2090266!5e0!3m2!1sen!2sus!4v1663313389070!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style={{ border: "0" }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <img
+            src={streetView}
+            class="img-fluid ml-2"
+            alt="Table-Layout"
+            style={{
+              width: "600px",
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          ></img>
+        </div>
+
         <div className="book-button">
           <Link className=" btn btn-danger btn-lg" to="/reservations/new">
             Book A Reservation

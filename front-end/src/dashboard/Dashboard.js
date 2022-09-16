@@ -250,6 +250,7 @@ export default function Dashboard({ date }) {
       <DateDisplay />
 
       <div className="">
+        <ErrorAlert error={reservationsError} />
         <div className=" p-3 mb-4 overflow-auto mr-2">
           <h3 className="text-center">Reservation List</h3>
           <ResrVation
@@ -262,9 +263,16 @@ export default function Dashboard({ date }) {
           <h3 className="text-center">Tables</h3>
           <Tables />
         </div>
+        <div className="book-button text-center">
+          <Link
+            className=" btn btn-primary btn-lg"
+            to="/search"
+            style={{ borderRadius: "0" }}
+          >
+            Search Reservations
+          </Link>
+        </div>
       </div>
-
-      <ErrorAlert error={reservationsError} />
     </main>
   );
 }
