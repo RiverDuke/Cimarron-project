@@ -44,6 +44,7 @@ function Menu() {
       </div>
       <div className="container-fluid menu">
         <h1 className="d-block text-center display-2 ">MENU</h1>
+
         <div className="row d-flex justify-content-center">
           <div className="card border-0 m-4" style={{ width: "18rem" }}>
             <img
@@ -51,7 +52,8 @@ function Menu() {
               className="card-img-top img-thumbnail"
               alt="Filet Mignon"
             />
-            <div className="card-body">
+
+            <div className="card-body ">
               <h5 className="card-title">Filet Mignon</h5>
               <p className="card-text">
                 The Filet Mignon. Favored by many for its melt-in-your-mouth
@@ -60,6 +62,7 @@ function Menu() {
               </p>
             </div>
           </div>
+
           <div className="card border-0 m-4" style={{ width: "18rem" }}>
             <img
               src={smoothiePic}
@@ -74,6 +77,7 @@ function Menu() {
               </p>
             </div>
           </div>
+
           <div className="card border-0 m-4" style={{ width: "18rem" }}>
             <img
               src={cheesCake}
@@ -88,6 +92,8 @@ function Menu() {
               </p>
             </div>
           </div>
+        </div>
+        <div className="row d-flex justify-content-center">
           <div className="card border-0 m-4" style={{ width: "18rem" }}>
             <img
               src={burgerPic}
@@ -142,11 +148,6 @@ function Menu() {
         >
           View our Menu
         </button>
-        {/* <div class="box-1 bg-dark">
-          <div class="btn btn-one">
-            <span>HOVER ME</span>
-          </div>
-        </div> */}
       </div>
       <hr className="style-two m-5"></hr>
       <div
@@ -172,10 +173,43 @@ function Menu() {
         </div>
       </div>
       <h1 className=" font-italic display-1 text-center">Dine With Us!</h1>
-      <div className="jumbotron menu vibe-image mx-5 d-flex container mx-auto">
-        <h3 className="text-white mt-auto mb-5">
-          Our top chef Anthony preparing his grill
-        </h3>
+
+      <div
+        id="carouselExampleFade"
+        class="carousel slide carousel-fade container"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div className="jumbotron menu car-image1 mx-5 d-flex container mx-auto"></div>
+          </div>
+          <div class="carousel-item">
+            <div className="jumbotron menu car-image2 mx-5 d-flex container mx-auto"></div>
+          </div>
+          <div class="carousel-item">
+            <div className="jumbotron menu car-image3 mx-5 d-flex container mx-auto"></div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="prev"
+          data-target="#carouselExampleFade"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="next"
+          data-target="#carouselExampleFade"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
       <div className="menu d-flex flex-column align-items-center">
         <h1 className="text-center display-2">Located in California</h1>
@@ -209,7 +243,15 @@ function Menu() {
         </div>
       </div>
 
-      <div className="navbar navbar-expand-lg hello footer"></div>
+      <div className="navbar navbar-expand-lg hello footer d-flex justify-content-end">
+        <a
+          className="text-primary m-1"
+          href="https://github.com/RiverDuke"
+          target="_blank"
+        >
+          @River Duke
+        </a>
+      </div>
     </>
   );
 }

@@ -76,7 +76,7 @@ export function ResrVation({ reservations, loadDashboard }) {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Reservation Id</th>
+            {/* <th scope="col">Reservation Id</th> */}
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Mobile Number</th>
@@ -89,7 +89,7 @@ export function ResrVation({ reservations, loadDashboard }) {
           return (
             <tbody key={reservation.reservation_id}>
               <tr>
-                <th scope="row">{reservation.reservation_id}</th>
+                {/* <th scope="row">{reservation.reservation_id}</th> */}
                 <td>{reservation.first_name}</td>
                 <td>{reservation.last_name}</td>
                 <td>{reservation.mobile_number}</td>
@@ -175,7 +175,7 @@ export default function Dashboard({ date }) {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Table Id</th>
+            {/* <th scope="col">Table Id</th> */}
             <th scope="col">Table Name</th>
             <th scope="col">Capacity</th>
             <th scope="col">Availablity</th>
@@ -220,7 +220,7 @@ export default function Dashboard({ date }) {
           return (
             <tbody key={table.table_id}>
               <tr>
-                <th scope="row">{table.table_id}</th>
+                {/* <th scope="row">{table.table_id}</th> */}
                 <td>{table.table_name}</td>
                 <td>{table.capacity}</td>
                 <td
@@ -240,7 +240,7 @@ export default function Dashboard({ date }) {
 
   return (
     <main className="container mt-3">
-      <h1 className="d-block text-center display-2 ">Manage Bookings</h1>
+      <h1 className="d-block text-center display-2 ">Manage Reservations</h1>
 
       <div className="d-md-flex mb-3 flex-column text-center">
         <h4 className="mb-0">Display reservations by date</h4>
@@ -260,7 +260,7 @@ export default function Dashboard({ date }) {
         </div>
 
         <div className=" ml-2 p-3 overflow-auto">
-          <h3 className="text-center">Tables</h3>
+          <h3 className="text-center">Table Availablity</h3>
           <Tables />
         </div>
         <div className="book-button text-center">

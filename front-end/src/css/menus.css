@@ -29,5 +29,8 @@ hr.style-two {
 }
 
 .footer {
-  height: 50px;
+  height: 60px;
+  background-color: #f3f5f7;
+  margin-top: 40px;
 }
+/* #495057 */

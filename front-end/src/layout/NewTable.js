@@ -103,7 +103,7 @@ export default function NewTable() {
 
           <p className="mt-5 text-center font-italic">
             *Clicking submit creates a table allowing guests to be seated at
-            said table(see Manage bookings to seat guests)
+            said table(see Manage Reservations to seat guests)
           </p>
         </div>
       </div>

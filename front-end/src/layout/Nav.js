@@ -39,7 +39,7 @@ export default function NavBar() {
             <li className="nav-item">
               <Link className="nav-link text-dark" to="/dashboard">
                 <span className="oi oi-dashboard" />
-                &nbsp;Manage Bookings
+                &nbsp;Manage Reservations
               </Link>
             </li>
             {/* <li className="nav-item">

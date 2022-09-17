@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { createReservation } from "../utils/api";
-import resPic from "../images/steakhouse-style-rib-eyes-ft-recipe1118.jpg";
+import resPic from "../images/niceCounter.png";
 
 export function ReservationForm({ onChange, data, onSubmit }) {
   const history = useHistory();

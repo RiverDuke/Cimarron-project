@@ -9,8 +9,7 @@
 }
 
 .vibe-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
-    url(../images/firepic.png);
+  background-image: url(../images/firepic.png);
   background-position: center;
   background-size: cover;
   height: 90vh;
@@ -21,6 +20,30 @@
   background-image: url(../images/firepic.png);
   background-position: center;
   background-size: cover;
+  position: static;
+}
+
+.car-image1 {
+  background-image: url(../images/firepic.png);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  position: static;
+}
+
+.car-image2 {
+  background-image: url(../images/nightvibe.png);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  position: static;
+}
+
+.car-image3 {
+  background-image: url(../images/steakhouse-style-rib-eyes-ft-recipe1118.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
   position: static;
 }
 
