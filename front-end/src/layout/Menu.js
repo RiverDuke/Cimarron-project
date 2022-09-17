@@ -214,7 +214,7 @@ function Menu() {
       <div className="menu d-flex flex-column align-items-center">
         <h1 className="text-center display-2">Located in California</h1>
         <h3>Manhattan Beach, CA 90266</h3>
-        <div className="d-flex my-2">
+        <div className="d-flex my-2 overflow-hidden">
           <iframe
             className=""
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26496.04952670603!2d-118.40114254999999!3d33.889494400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b3c5e2b0632f%3A0x70351d4f4154520!2sManhattan%20Beach%2C%20CA%2090266!5e0!3m2!1sen!2sus!4v1663313389070!5m2!1sen!2sus"
@@ -227,7 +227,7 @@ function Menu() {
           ></iframe>
           <img
             src={streetView}
-            class="img-fluid ml-2 overflow-hidden"
+            class="img-fluid ml-2 "
             alt="Table-Layout"
             style={{
               width: "600px",
