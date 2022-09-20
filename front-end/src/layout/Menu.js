@@ -31,19 +31,22 @@ function Menu() {
         <div className=" mt-auto mb-auto mx-auto" style={{ marginTop: "80px" }}>
           <h3
             className="lead font-italic text-white display-1 text-center"
-            style={{ fontSize: "120px" }}
+            style={{ fontSize: "110px" }}
           >
-            "Satisfy that Cimarron Appitite"
+            Satisfy that Simmerin' Appetite
           </h3>
           <div className="mt-5 mb-5 justify-content-center text-center">
-            <Link className=" btn btn-danger btn-lg " to="/reservations/new">
+            <Link
+              className=" btn btn-lg btn-danger red-button"
+              to="/reservations/new"
+            >
               Book A Reservation
             </Link>
           </div>
         </div>
       </div>
       <div className="container-fluid menu">
-        <h1 className="d-block text-center display-2 ">MENU</h1>
+        <h1 className="d-block text-center display-3 ml-3">MENU</h1>
 
         <div className="row d-flex justify-content-center">
           <div className="card border-0 m-4" style={{ width: "18rem" }}>
@@ -142,7 +145,7 @@ function Menu() {
       <div className="d-flex m-3">
         <button
           type="button"
-          className="btn btn-lg btn-outline-primary mx-auto"
+          className="btn btn-lg btn-outline-danger mx-auto"
           data-toggle="modal"
           data-target="#exampleModal"
         >
@@ -172,7 +175,7 @@ function Menu() {
           </div>
         </div>
       </div>
-      <h1 className=" font-italic display-1 text-center">Dine With Us!</h1>
+      <h1 className=" font-italic display-3 text-center">Dine with Us</h1>
 
       <div
         id="carouselExampleFade"
@@ -226,24 +229,14 @@ function Menu() {
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
 
-          {/* <img
-            src={streetView}
-            class=" ml-2 img-fluid "
-            alt="Table-Layout"
-            style={{
-              width: "600px",
-              maxWidth: "100%",
-              height: "auto",
-              // backgroundImage: { streetView },
-              // backgroundPosition: "center",
-              // backgroundSize: "cover",
-            }}
-          ></img> */}
           <div className="imgStreetView jumbotron ml-2"> </div>
         </div>
 
         <div className="book-button">
-          <Link className=" btn btn-danger btn-lg" to="/reservations/new">
+          <Link
+            className=" btn btn-danger btn-lg red-button"
+            to="/reservations/new"
+          >
             Book A Reservation
           </Link>
         </div>

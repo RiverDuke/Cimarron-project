@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/menus.css";
 import "../css/dashboard.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import logo from "../images/Logo.png";
 
@@ -32,37 +33,25 @@ export default function NavBar() {
           <ul className="navbar-nav ">
             <li className="nav-item">
               <Link className="nav-link text-dark" to="/home">
-                <span className="oi oi-home " />
+                <i
+                  class="bi bi-house-door-fill"
+                  style={{ fontSize: "20px" }}
+                ></i>
                 &nbsp;Home
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link text-dark" to="/dashboard">
-                <span className="oi oi-dashboard" />
+                <i
+                  class="bi bi-journal-bookmark"
+                  style={{ fontSize: "20px" }}
+                ></i>
                 &nbsp;Manage Reservations
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link text-dark" to="/search">
-                <span className="oi oi-magnifying-glass" />
-                &nbsp;Search
-              </Link>
-            </li> */}
-            {/* <li className="nav-item">
-              <Link className="nav-link text-dark" to="/reservations/new">
-                <span className="oi oi-plus" />
-                &nbsp;New Reservation
-              </Link>
-            </li> */}
-            {/* <li className="nav-item">
-              <Link className="nav-link text-dark" to="/tables/new">
-                <span className="oi oi-layers" />
-                &nbsp;New Table
-              </Link>
-            </li> */}
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle text-dark"
+                className="nav-link dropdown-toggle text-dark mt-1"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -77,28 +66,27 @@ export default function NavBar() {
                 aria-labelledby="navbarDropdown"
               >
                 <Link className="nav-link text-dark ml-2" to="/search">
-                  <span className="oi oi-magnifying-glass" />
+                  <i class="bi bi-search" style={{ fontSize: "20px" }}></i>
                   &nbsp;Search
                 </Link>
-                {/* <Link className="nav-link text-dark" to="/dashboard">
-                  <span className="oi oi-dashboard" />
-                  &nbsp;Dashboard
-                </Link> */}
+
                 <Link
                   className="nav-link text-dark ml-2"
                   to="/reservations/new"
                 >
-                  <span className="oi oi-plus" />
+                  <i
+                    class="bi bi-calendar-check"
+                    style={{ fontSize: "20px" }}
+                  ></i>
                   &nbsp;New Reservation
                 </Link>
                 <Link className="nav-link text-dark ml-2" to="/tables/new">
-                  <span className="oi oi-layers" />
+                  <i
+                    class="bi bi-plus-circle "
+                    style={{ fontSize: "20px" }}
+                  ></i>
                   &nbsp;New Table
                 </Link>
-                {/* <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a> */}
               </div>
             </li>
           </ul>
