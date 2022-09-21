@@ -58,32 +58,26 @@ export default function Seat() {
 
   function DisplayReservtion() {
     return (
-      <div className=" d-flex text-align-center flex-column" role="alert">
-        <div className="d-flex mx-auto">
-          <h4>Reservation Id:</h4>
-          <h4 className="text-success">
-            &nbsp;{`#${reservation.reservation_id}`}
-          </h4>
-        </div>
+      <div className=" d-flex flex-column" role="alert">
         <div className="d-flex mx-auto">
           <h4>Name:</h4>
-          <h4 className="text-success">
+          <h4 className="text-primary">
             &nbsp;{`${reservation.first_name} ${reservation.last_name}`}
           </h4>
         </div>
         <div className="d-flex mx-auto">
           <h4>Date:</h4>
-          <h4 className="text-success">
+          <h4 className="text-primary">
             &nbsp;{`${reservation.reservation_date}`}
           </h4>
         </div>
         <div className="d-flex mx-auto">
           <h4>Party of:</h4>
-          <h4 className="text-success">&nbsp;{`${reservation.people}`}</h4>
+          <h4 className="text-primary">&nbsp;{`${reservation.people}`}</h4>
         </div>
         <div className="d-flex mx-auto">
           <h4>Time:</h4>
-          <h4 className="text-success">
+          <h4 className="text-primary">
             &nbsp;{`${reservation.reservation_time}`}
           </h4>
         </div>
@@ -94,7 +88,7 @@ export default function Seat() {
   function SeatSelect() {
     return (
       <form onSubmit={handleSubmit}>
-        <div className="form-group col-md-4 col-sm-4 mx-auto">
+        <div className="form-group col-md-4 col-sm-4 mx-auto mt-3">
           <label htmlFor="table_id">Seat at:</label>
           <select
             name="table_id"
@@ -110,7 +104,6 @@ export default function Seat() {
                 <option
                   key={table.table_id}
                   value={table.table_id}
-                  // className="text-success"
                 >{`${table.table_name} - ${table.capacity}`}</option>
               );
             })}
@@ -123,7 +116,7 @@ export default function Seat() {
         >
           Cancel
         </button>
-        <button type="submit" className="btn btn-outline-success">
+        <button type="submit" className="btn btn-outline-primary">
           Submit
         </button>
       </form>
@@ -142,7 +135,7 @@ export default function Seat() {
 
   return (
     <div className="container mt-3 text-center">
-      <h1 className=" display-2">Currently Seating</h1>
+      <h1 className=" display-3 mt-5 mb-4">Currently Seating</h1>
       <ErrorHandle />
       <DisplayReservtion />
       <SeatSelect />

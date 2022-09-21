@@ -23,30 +23,30 @@ function SeatBtnDisplay({ reservation }) {
   if (reservation.status === "booked") {
     return (
       <>
-        <td style={{ borderTop: "0" }}>
+        <td style={{ borderStyle: "hidden", padding: "0" }}>
           <Link
             to={`/reservations/${reservation.reservation_id}/seat`}
             type="button"
-            className="btn btn-outline-primary "
+            className="btn btn-outline-primary m-1 ml-3"
             href={`/reservations/${reservation.reservation_id}/seat`}
           >
             Seat
           </Link>
         </td>
-        <td style={{ borderTop: "0" }}>
+        <td style={{ borderStyle: "hidden", padding: "0" }}>
           <Link
             to={`/reservations/${reservation.reservation_id}/edit`}
             type="button"
-            className="btn btn-outline-primary "
+            className="btn btn-outline-primary m-1 ml-3"
             href={`/reservations/${reservation.reservation_id}/edit`}
           >
             Edit
           </Link>
         </td>
-        <td style={{ borderTop: "0" }}>
+        <td style={{ borderStyle: "hidden", padding: "0" }}>
           <button
             type="button"
-            className="btn btn-outline-primary "
+            className="btn btn-outline-primary m-1 ml-3"
             data-reservation-id-cancel={reservation.reservation_id}
             onClick={async () => {
               if (window.confirm("Do you want to cancel this reservation?")) {
@@ -66,7 +66,13 @@ function SeatBtnDisplay({ reservation }) {
       </>
     );
   } else {
-    return null;
+    return (
+      <>
+        <td style={{ borderStyle: "hidden" }}></td>
+        <td style={{ borderStyle: "hidden" }}></td>
+        <td style={{ borderStyle: "hidden" }}></td>
+      </>
+    );
   }
 }
 
@@ -76,7 +82,6 @@ export function ResrVation({ reservations, loadDashboard }) {
       <table className="table">
         <thead>
           <tr>
-            {/* <th scope="col">Reservation Id</th> */}
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Mobile Number</th>
@@ -89,7 +94,6 @@ export function ResrVation({ reservations, loadDashboard }) {
           return (
             <tbody key={reservation.reservation_id}>
               <tr>
-                {/* <th scope="row">{reservation.reservation_id}</th> */}
                 <td>{reservation.first_name}</td>
                 <td>{reservation.last_name}</td>
                 <td>{reservation.mobile_number}</td>
@@ -98,6 +102,7 @@ export function ResrVation({ reservations, loadDashboard }) {
                 <td data-reservation-id-status={reservation.reservation_id}>
                   {reservation.status}
                 </td>
+
                 <SeatBtnDisplay
                   reservation={reservation}
                   loadDashboard={loadDashboard}
@@ -185,10 +190,10 @@ export default function Dashboard({ date }) {
           function Finish() {
             if (table.reservation_id) {
               return (
-                <td style={{ borderTop: "0" }}>
+                <td style={{ borderStyle: "hidden", padding: "0" }}>
                   <button
                     type="button"
-                    className="btn btn-outline-primary"
+                    className="btn btn-outline-primary m-1 ml-3"
                     data-table-id-finish={table.table_id}
                     onClick={async () => {
                       if (
@@ -205,7 +210,6 @@ export default function Dashboard({ date }) {
                           setReservationsError(err);
                         }
                       } else {
-                        // console.log("goodbye");
                       }
                     }}
                   >
@@ -214,13 +218,12 @@ export default function Dashboard({ date }) {
                 </td>
               );
             } else {
-              return null;
+              return <td style={{ borderStyle: "hidden" }}></td>;
             }
           }
           return (
             <tbody key={table.table_id}>
               <tr>
-                {/* <th scope="row">{table.table_id}</th> */}
                 <td>{table.table_name}</td>
                 <td>{table.capacity}</td>
                 <td
@@ -240,26 +243,30 @@ export default function Dashboard({ date }) {
 
   return (
     <main className="container mt-3">
-      <h1 className="d-block text-center display-2 ">Manage Reservations</h1>
+      <h1 className="d-block text-center display-3 mb-5 mt-5">
+        Manage Reservations
+      </h1>
 
       <div className="d-md-flex mb-3 flex-column text-center">
-        <h4 className="mb-0">Display reservations by date</h4>
-        <h4 className="ml-1 display-4">{date}</h4>
+        <h4 className="mb-0 mt-2">Display reservations by date</h4>
+        <h4 className="display-4 mb-2" style={{ fontSize: "55px" }}>
+          {date}
+        </h4>
       </div>
 
       <DateDisplay />
 
       <div className="">
         <ErrorAlert error={reservationsError} />
-        <div className=" p-3 mb-4 overflow-auto mr-2">
-          <h3 className="text-center">Reservation List</h3>
+        <div className="p-3 mb-4 overflow-auto">
+          <h3 className="text-center mt-3">Reservation List</h3>
           <ResrVation
             reservations={reservations}
             loadDashboard={loadDashboard}
           />
         </div>
 
-        <div className=" ml-2 p-3 overflow-auto">
+        <div className="p-3 overflow-auto">
           <h3 className="text-center">Table Availablity</h3>
           <Tables />
         </div>

@@ -199,8 +199,12 @@ function Menu() {
           role="button"
           data-slide="prev"
           data-target="#carouselExampleFade"
+          style={{ opacity: "1" }}
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span
+            class="carousel-control-prev-icon mt-4"
+            aria-hidden="true"
+          ></span>
           <span class="sr-only">Previous</span>
         </a>
         <a
@@ -209,13 +213,17 @@ function Menu() {
           role="button"
           data-slide="next"
           data-target="#carouselExampleFade"
+          style={{ opacity: "1" }}
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span
+            class="carousel-control-next-icon mt-4"
+            aria-hidden="true"
+          ></span>
           <span class="sr-only">Next</span>
         </a>
       </div>
       <div className="menu d-flex flex-column align-items-center">
-        <h1 className="text-center display-2">Located in California</h1>
+        <h1 className="text-center display-3">Located in California</h1>
         <h3>Manhattan Beach, CA 90266</h3>
         <div className="d-flex my-2 container rounded">
           <iframe
@@ -242,10 +250,24 @@ function Menu() {
         </div>
       </div>
 
-      <div className="navbar navbar-expand-lg hello footer d-flex justify-content-end">
+      <div className="navbar navbar-expand-lg hello footer d-flex justify-content-center">
         <a
-          className="text-primary m-1"
+          className="text-white m-1 mr-5"
           href="https://github.com/RiverDuke"
+          target="_blank"
+        >
+          Github
+        </a>
+        <a
+          className="text-white m-1 mr-5"
+          href="https://www.linkedin.com/in/river-duke/"
+          target="_blank"
+        >
+          Contact Me
+        </a>
+        <a
+          className="text-white m-1"
+          href="https://riverduke.com/"
           target="_blank"
         >
           @River Duke

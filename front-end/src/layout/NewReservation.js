@@ -65,9 +65,10 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           onChange={onChange}
           value={data.reservation_time}
           required
+          step="900"
         ></input>
       </div>
-      <div className="form-group col-md-3 col-sm-4 mx-auto">
+      <div className="form-group col-md-7 col-sm-12 mx-auto">
         <label htmlFor="name"> Party Size:</label>
         <input
           name="people"
@@ -80,14 +81,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
         ></input>
       </div>
       <div className="text-center">
-        <button
-          type="button"
-          className="btn btn-outline-dark mr-2 "
-          onClick={() => history.goBack()}
-        >
-          Cancel
-        </button>
-        <button type="submit" className="btn btn-outline-primary">
+        <button type="submit" className="btn btn-outline-primary mt-3">
           Submit
         </button>
       </div>
@@ -145,9 +139,9 @@ export default function Reservation() {
 
   return (
     <div className="container mt-3">
-      <h1 className="display-2 text-center">Create a Reservation</h1>
+      <h1 className="display-3 text-center mt-5 ">Create a Reservation</h1>
       <ErrorHandle />
-      <div className="row mt-4">
+      <div className="row mt-5">
         <div className="col-12 col-md-6 text-center">
           <img
             src={resPic}
@@ -160,8 +154,8 @@ export default function Reservation() {
             }}
           ></img>
           <p className="mt-3 font-italic">
-            *New reservations are visible and can be managed on the Manage
-            Bookings page(seat reservations at a table when ready)
+            *Reservations will be forfeited for any arrivals 15 minutes after
+            their time, closed on Tuesday
           </p>
         </div>
         <div className="col-12 col-md-6 mb-5">
