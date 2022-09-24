@@ -36,6 +36,25 @@ hr.style-two {
 
 .card-img-top {
   width: 100%;
-  height: 15vw;
+  height: 30vh;
   object-fit: cover;
+}
+
+.menu-font {
+  font-size: 110px;
+}
+
+.hr-margin {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.map-margin {
+  margin-top: 56px;
+}
+
+@media screen and (max-width: 1000px) {
+  .menu-font {
+    font-size: 70px;
+  }
 }

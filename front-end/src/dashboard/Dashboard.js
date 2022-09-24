@@ -27,7 +27,7 @@ function SeatBtnDisplay({ reservation }) {
           <Link
             to={`/reservations/${reservation.reservation_id}/seat`}
             type="button"
-            className="btn btn-outline-primary m-1 ml-3"
+            className="btn btn-outline-danger red-button-outline m-1 ml-3"
             href={`/reservations/${reservation.reservation_id}/seat`}
           >
             Seat
@@ -37,7 +37,7 @@ function SeatBtnDisplay({ reservation }) {
           <Link
             to={`/reservations/${reservation.reservation_id}/edit`}
             type="button"
-            className="btn btn-outline-primary m-1 ml-3"
+            className="btn btn-outline-danger red-button-outline m-1 ml-3"
             href={`/reservations/${reservation.reservation_id}/edit`}
           >
             Edit
@@ -46,7 +46,7 @@ function SeatBtnDisplay({ reservation }) {
         <td style={{ borderStyle: "hidden", padding: "0" }}>
           <button
             type="button"
-            className="btn btn-outline-primary m-1 ml-3"
+            className="btn btn-outline-danger red-button-outline m-1 ml-3"
             data-reservation-id-cancel={reservation.reservation_id}
             onClick={async () => {
               if (window.confirm("Do you want to cancel this reservation?")) {
@@ -145,7 +145,7 @@ export default function Dashboard({ date }) {
         <div class="btn-group" role="group" aria-label="Basic example">
           <button
             type="button"
-            className="btn btn-outline-primary"
+            className="btn btn-outline-danger red-button-outline"
             onClick={() => {
               history.push(`/dashboard?date=${previous(date)}`);
             }}
@@ -163,7 +163,7 @@ export default function Dashboard({ date }) {
           </button>
           <button
             type="button"
-            className="btn btn-outline-primary"
+            className="btn btn-outline-danger red-button-outline"
             onClick={() => {
               history.push(`/dashboard?date=${next(date)}`);
             }}
@@ -193,7 +193,7 @@ export default function Dashboard({ date }) {
                 <td style={{ borderStyle: "hidden", padding: "0" }}>
                   <button
                     type="button"
-                    className="btn btn-outline-primary m-1 ml-3"
+                    className="btn btn-outline-danger red-button-outline m-1 ml-3"
                     data-table-id-finish={table.table_id}
                     onClick={async () => {
                       if (
@@ -271,11 +271,7 @@ export default function Dashboard({ date }) {
           <Tables />
         </div>
         <div className="book-button text-center">
-          <Link
-            className=" btn btn-primary btn-lg"
-            to="/search"
-            style={{ borderRadius: "0" }}
-          >
+          <Link className=" btn btn-danger red-button btn-lg" to="/search">
             Search Reservations
           </Link>
         </div>

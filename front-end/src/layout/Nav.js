@@ -13,7 +13,9 @@ export default function NavBar() {
         id="navbar"
       >
         <div className="navbar-brand">
-          <img src={logo} className="logo" alt="Logo"></img>
+          <a href="/home">
+            <img src={logo} className="logo" alt="Logo"></img>
+          </a>
         </div>
         <button
           className="navbar-toggler"

@@ -58,7 +58,7 @@ export default function NewTable() {
           <form className="" onSubmit={onSubmit}>
             <div className="form-group col-md-8 col-sm-12 mx-auto">
               <label htmlFor="name">
-                <h4 className="m-0 font-weight-light">Table Name:</h4>
+                <h4 className="m-0 font-weight-light mt-4">Table Name:</h4>
               </label>
               <input
                 name="table_name"
@@ -89,21 +89,21 @@ export default function NewTable() {
             <div className="text-center">
               <button
                 type="button"
-                className="btn btn-outline-dark mr-2"
+                className="btn btn-outline-dark mr-2 mt-3"
                 onClick={() => history.goBack()}
               >
                 Cancel
               </button>
 
-              <button type="submit" className="btn btn-outline-danger">
+              <button type="submit" className="btn btn-outline-danger mt-3">
                 Submit
               </button>
             </div>
           </form>
 
-          <p className="mt-5 text-center font-italic">
-            *Clicking submit creates a table allowing guests to be seated at
-            said table(see Manage Reservations to seat guests)
+          <p className="mt-4 text-center font-italic">
+            *Clicking submit creates a table that allows guests to be seated at
+            said table (see Manage Reservations to seat guests)
           </p>
         </div>
       </div>

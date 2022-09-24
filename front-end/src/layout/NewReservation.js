@@ -7,7 +7,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
   const history = useHistory();
   return (
     <form onSubmit={onSubmit} className="">
-      <div className="form-group col-md-7 col-sm-12 mx-auto">
+      <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name">First Name:</label>
         <input
           name="first_name"
@@ -19,7 +19,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-7 col-sm-12 mx-auto">
+      <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name">Last Name:</label>
         <input
           name="last_name"
@@ -31,7 +31,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-7 col-sm-12 mx-auto">
+      <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name">Mobile Number:</label>
         <input
           name="mobile_number"
@@ -43,7 +43,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-7 col-sm-12 mx-auto">
+      <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="reservation_date"> Reservation Date:</label>
         <input
           name="reservation_date"
@@ -55,7 +55,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           required
         ></input>
       </div>
-      <div className="form-group col-md-7 col-sm-12 mx-auto">
+      <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name"> Reservation Time:</label>
         <input
           name="reservation_time"
@@ -68,7 +68,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
           step="900"
         ></input>
       </div>
-      <div className="form-group col-md-7 col-sm-12 mx-auto">
+      <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name"> Party Size:</label>
         <input
           name="people"
@@ -81,7 +81,10 @@ export function ReservationForm({ onChange, data, onSubmit }) {
         ></input>
       </div>
       <div className="text-center">
-        <button type="submit" className="btn btn-outline-primary mt-3">
+        <button
+          type="submit"
+          className="btn btn-outline-danger red-button-outline mt-3"
+        >
           Submit
         </button>
       </div>
@@ -145,7 +148,7 @@ export default function Reservation() {
         <div className="col-12 col-md-6 text-center">
           <img
             src={resPic}
-            class="img-fluid"
+            class="img-fluid ml-5"
             alt="Table-Layout"
             style={{
               width: "500px",
@@ -153,7 +156,7 @@ export default function Reservation() {
               height: "auto",
             }}
           ></img>
-          <p className="mt-3 font-italic">
+          <p className="mt-3 font-italic ml-5">
             *Reservations will be forfeited for any arrivals 15 minutes after
             their time, closed on Tuesday
           </p>

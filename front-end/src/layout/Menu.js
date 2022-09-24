@@ -26,13 +26,10 @@ function Menu() {
   }, []);
 
   return (
-    <>
+    <div className="p-0 m-0">
       <div className="jumbotron front-page-image container-fluid d-flex flex-column ">
         <div className=" mt-auto mb-auto mx-auto" style={{ marginTop: "80px" }}>
-          <h3
-            className="lead font-italic text-white display-1 text-center"
-            style={{ fontSize: "110px" }}
-          >
+          <h3 className="lead font-italic text-white display-1 text-center menu-font">
             Satisfy that Simmerin' Appetite
           </h3>
           <div className="mt-5 mb-5 justify-content-center text-center">
@@ -45,8 +42,8 @@ function Menu() {
           </div>
         </div>
       </div>
-      <div className="container-fluid menu">
-        <h1 className="d-block text-center display-3 ml-3">MENU</h1>
+      <div className="container-fluid mt-5">
+        <h1 className="d-block text-center display-3 ml-3 mb-4">MENU</h1>
 
         <div className="row d-flex justify-content-center">
           <div className="card border-0 m-4" style={{ width: "18rem" }}>
@@ -142,17 +139,17 @@ function Menu() {
         </div>
       </div>
 
-      <div className="d-flex m-3">
+      <div className="d-flex m-4">
         <button
           type="button"
-          className="btn btn-lg btn-outline-danger mx-auto"
+          className="btn btn-lg btn-outline-danger red-button-outline mx-auto"
           data-toggle="modal"
           data-target="#exampleModal"
         >
           View our Menu
         </button>
       </div>
-      <hr className="style-two m-5"></hr>
+      <hr className="style-two hr-margin"></hr>
       <div
         className="modal fade mr-3 "
         id="exampleModal"
@@ -179,18 +176,18 @@ function Menu() {
 
       <div
         id="carouselExampleFade"
-        class="carousel slide carousel-fade container"
+        class="carousel slide carousel-fade container mt-5"
         data-ride="carousel"
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div className="jumbotron menu car-image1 mx-5 d-flex container mx-auto"></div>
+            <div className="jumbotron car-image1 mx-5 d-flex container mx-auto"></div>
           </div>
           <div class="carousel-item">
-            <div className="jumbotron menu car-image2 mx-5 d-flex container mx-auto"></div>
+            <div className="jumbotron car-image2 mx-5 d-flex container mx-auto"></div>
           </div>
           <div class="carousel-item">
-            <div className="jumbotron menu car-image3 mx-5 d-flex container mx-auto"></div>
+            <div className="jumbotron car-image3 mx-5 d-flex container mx-auto"></div>
           </div>
         </div>
         <a
@@ -222,12 +219,13 @@ function Menu() {
           <span class="sr-only">Next</span>
         </a>
       </div>
-      <div className="menu d-flex flex-column align-items-center">
+      <hr className="style-two hr-margin"></hr>
+      <div className=" d-flex flex-column align-items-center">
         <h1 className="text-center display-3">Located in California</h1>
         <h3>Manhattan Beach, CA 90266</h3>
-        <div className="d-flex my-2 container rounded">
+        <div className="d-flex my-2 container rounded map-margin">
           <iframe
-            className=""
+            className="map-margin"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26496.04952670603!2d-118.40114254999999!3d33.889494400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b3c5e2b0632f%3A0x70351d4f4154520!2sManhattan%20Beach%2C%20CA%2090266!5e0!3m2!1sen!2sus!4v1663313389070!5m2!1sen!2sus"
             width="600"
             height="450"
@@ -237,12 +235,12 @@ function Menu() {
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
 
-          <div className="imgStreetView jumbotron ml-2"> </div>
+          <div className="imgStreetView jumbotron ml-2 map-margin"> </div>
         </div>
 
         <div className="book-button">
           <Link
-            className=" btn btn-danger btn-lg red-button"
+            className=" btn btn-lg btn-danger red-button ml-3"
             to="/reservations/new"
           >
             Book A Reservation
@@ -250,30 +248,35 @@ function Menu() {
         </div>
       </div>
 
-      <div className="navbar navbar-expand-lg hello footer d-flex justify-content-center">
-        <a
-          className="text-white m-1 mr-5"
-          href="https://github.com/RiverDuke"
-          target="_blank"
-        >
-          Github
-        </a>
-        <a
-          className="text-white m-1 mr-5"
-          href="https://www.linkedin.com/in/river-duke/"
-          target="_blank"
-        >
-          Contact Me
-        </a>
-        <a
-          className="text-white m-1"
-          href="https://riverduke.com/"
-          target="_blank"
-        >
-          @River Duke
-        </a>
+      <div className="navbar navbar-expand-lg footer d-flex justify-content-center flex-column">
+        <div className="mt-3 ml-3">
+          <a
+            className="text-white"
+            href="https://github.com/RiverDuke"
+            target="_blank"
+          >
+            Github
+          </a>
+          <a
+            className="text-white mx-5"
+            href="https://www.linkedin.com/in/river-duke/"
+            target="_blank"
+          >
+            Contact Me
+          </a>
+          <a
+            className="text-white "
+            href="https://riverduke.com/"
+            target="_blank"
+          >
+            @River Duke
+          </a>
+        </div>
+        {/* <p className="text-white mt-3 ml-5">
+          Copyright © 2022 River Duke. All rights reserved.
+        </p> */}
       </div>
-    </>
+    </div>
   );
 }
 

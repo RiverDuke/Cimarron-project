@@ -75,16 +75,32 @@
   width: 150px;
   cursor: pointer;
 }
+
 .red-button {
   background-color: #ba131a;
-  /* color: white; */
 }
 
+.red-button:hover {
+  background-color: #ba131a;
+  border-color: #ba131a;
+  transform: scale(1.1);
+}
+
+.red-button-outline {
+  color: #ba131a;
+  border-color: #ba131a;
+}
+
+.red-button-outline:hover {
+  color: white;
+  background-color: #ba131a;
+  transform: scale(1.1);
+}
+/* #a71117 */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   height: 40px;
   width: 40px;
-  /* fill: "%50fff" !important; */
 }
 
 .carousel-control-prev-icon:hover,
@@ -101,13 +117,3 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   height: 11px;
   border-width: thin;
 }
-
-/* select.m option {
-  display: none;
-}
-
-select.m option:nth-child(16),
-select.m option:nth-child(31),
-select.m option:nth-child(46) {
-  display: block;
-} */
