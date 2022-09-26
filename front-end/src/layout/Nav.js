@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/menus.css";
 import "../css/dashboard.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+// import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import logo from "../images/Logo.png";
 
