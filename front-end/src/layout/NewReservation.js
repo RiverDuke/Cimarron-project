@@ -153,8 +153,13 @@ export default function Reservation() {
   }
 
   return (
-    <div className="container mt-2">
-      <h1 className="display-3 text-center mt-5 ">Create a Reservation</h1>
+    <div className="container">
+      <h1
+        className=" text-center mt-5 "
+        style={{ fontSize: "70px", marginTop: "2rem" }}
+      >
+        Create a Reservation
+      </h1>
       <ErrorHandle error={reservationsError} />
       <div className="row mt-5">
         <div className="col-12 col-md-6 text-center">
@@ -169,8 +174,8 @@ export default function Reservation() {
             }}
           ></img>
           <p className="mt-2 font-italic ml-5">
-            *Reservations will be forfeited for any arrivals 15 minutes after
-            their time, closed on Tuesday
+            *Reservations will be forfeited for any arrivals that are 15 minutes
+            late. Closed on Tuesday.
           </p>
         </div>
         <div className="col-12 col-md-6 mb-5">

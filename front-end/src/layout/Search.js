@@ -73,16 +73,19 @@ export default function Search() {
 
   return (
     <div className="container-fluid mt-3">
-      <h1 className="card-title text-center display-3 mt-5">
+      <h1
+        className="card-title text-center display-3 mt-5"
+        style={{ fontSize: "70px" }}
+      >
         Search Reservations
       </h1>
       <ErrorHandle />
       <form
-        className="form-group col-md-5 col-sm-12 mx-auto mt-5 mb-5"
+        className="form-group col-md-5 col-sm-12 mx-auto mt-4 mb-5"
         onSubmit={handleSubmit}
       >
         <label htmlFor="mobile_number" style={{ fontSize: "30px" }}>
-          Mobile Number:
+          <h4 className="m-0 font-weight-light mt-4">Mobile Number:</h4>
         </label>
         <div className="input-group">
           <input

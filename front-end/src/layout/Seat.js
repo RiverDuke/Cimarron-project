@@ -135,7 +135,9 @@ export default function Seat() {
 
   return (
     <div className="container mt-3 text-center">
-      <h1 className=" display-3 mt-5 mb-4">Currently Seating</h1>
+      <h1 className=" mt-5 mb-4" style={{ fontSize: "70px" }}>
+        Currently Seating
+      </h1>
       <ErrorHandle />
       <DisplayReservtion />
       <SeatSelect />

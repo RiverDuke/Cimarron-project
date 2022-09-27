@@ -50,9 +50,11 @@ export default function NewTable() {
 
   return (
     <div className="container mt-3">
-      <h1 className="display-2 text-center">Add Table</h1>
+      <h1 className="display-2 text-center mt-5" style={{ fontSize: "70px" }}>
+        Add Table
+      </h1>
       <ErrorHandle />
-      <div className="row mt-5">
+      <div className="row mt-4">
         <img
           src={tablePic}
           className="col-12 col-md-6"

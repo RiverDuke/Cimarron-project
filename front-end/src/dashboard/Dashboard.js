@@ -243,13 +243,16 @@ export default function Dashboard({ date }) {
 
   return (
     <main className="container mt-3">
-      <h1 className="d-block text-center display-3 mb-5 mt-5">
+      <h1
+        className="d-block text-center mb-3 mt-5"
+        style={{ fontSize: "70px" }}
+      >
         Manage Reservations
       </h1>
 
       <div className="d-md-flex mb-3 flex-column text-center">
         <h4 className="mb-0 mt-2">Display reservations by date</h4>
-        <h4 className="display-4 mb-2" style={{ fontSize: "55px" }}>
+        <h4 className="display-4 mb-2" style={{ fontSize: "40px" }}>
           {date}
         </h4>
       </div>
