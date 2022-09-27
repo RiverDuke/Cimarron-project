@@ -76,6 +76,10 @@
   cursor: pointer;
 }
 
+.table th {
+  border-top: 2px solid #dee2e6;
+}
+
 .red-button {
   background-color: #ba131a;
 }
@@ -94,6 +98,10 @@
 .red-button-outline:hover {
   color: white;
   background-color: #ba131a;
+  transform: scale(1.1);
+}
+
+.gray-btn:hover {
   transform: scale(1.1);
 }
 /* #a71117 */

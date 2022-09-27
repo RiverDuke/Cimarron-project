@@ -4,11 +4,12 @@ import { createReservation } from "../utils/api";
 import resPic from "../images/niceCounter.png";
 
 export function ReservationForm({ onChange, data, onSubmit }) {
-  const history = useHistory();
   return (
     <form onSubmit={onSubmit} className="">
       <div className="form-group col-md-8 col-sm-12 mx-auto">
-        <label htmlFor="name">First Name:</label>
+        <label htmlFor="name">
+          <h5 className="m-0 font-weight-light">First Name:</h5>
+        </label>
         <input
           name="first_name"
           type="text"
@@ -20,7 +21,9 @@ export function ReservationForm({ onChange, data, onSubmit }) {
         ></input>
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
-        <label htmlFor="name">Last Name:</label>
+        <label htmlFor="name">
+          <h5 className="m-0 font-weight-light mt-3">Last Name:</h5>
+        </label>
         <input
           name="last_name"
           type="text"
@@ -32,7 +35,9 @@ export function ReservationForm({ onChange, data, onSubmit }) {
         ></input>
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
-        <label htmlFor="name">Mobile Number:</label>
+        <label htmlFor="name">
+          <h5 className="m-0 font-weight-light mt-3">Mobile Number:</h5>
+        </label>
         <input
           name="mobile_number"
           type="text"
@@ -44,7 +49,9 @@ export function ReservationForm({ onChange, data, onSubmit }) {
         ></input>
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
-        <label htmlFor="reservation_date"> Reservation Date:</label>
+        <label htmlFor="reservation_date">
+          <h5 className="m-0 font-weight-light mt-3">Reservation Date:</h5>
+        </label>
         <input
           name="reservation_date"
           type="date"
@@ -56,7 +63,9 @@ export function ReservationForm({ onChange, data, onSubmit }) {
         ></input>
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
-        <label htmlFor="name"> Reservation Time:</label>
+        <label htmlFor="name">
+          <h5 className="m-0 font-weight-light mt-3">Reservation Time:</h5>
+        </label>
         <input
           name="reservation_time"
           type="time"
@@ -69,7 +78,9 @@ export function ReservationForm({ onChange, data, onSubmit }) {
         ></input>
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
-        <label htmlFor="name"> Party Size:</label>
+        <label htmlFor="name">
+          <h5 className="m-0 font-weight-light mt-3">Party Size:</h5>
+        </label>
         <input
           name="people"
           type="number"
@@ -91,6 +102,17 @@ export function ReservationForm({ onChange, data, onSubmit }) {
     </form>
   );
 }
+
+export function ErrorHandle({ error }) {
+  return (
+    error && (
+      <div className="alert alert-danger mt-2 mb-2" role="alert">
+        {error}
+      </div>
+    )
+  );
+}
+
 export default function Reservation() {
   const initialValue = {
     first_name: "",
@@ -130,25 +152,15 @@ export default function Reservation() {
     }
   }
 
-  function ErrorHandle() {
-    return (
-      reservationsError && (
-        <div className="alert alert-danger mt-2 mb-2" role="alert">
-          {reservationsError}
-        </div>
-      )
-    );
-  }
-
   return (
     <div className="container mt-3">
       <h1 className="display-3 text-center mt-5 ">Create a Reservation</h1>
-      <ErrorHandle />
+      <ErrorHandle error={reservationsError} />
       <div className="row mt-5">
         <div className="col-12 col-md-6 text-center">
           <img
             src={resPic}
-            class="img-fluid ml-5"
+            className="img-fluid ml-5"
             alt="Table-Layout"
             style={{
               width: "500px",

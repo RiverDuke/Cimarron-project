@@ -53,7 +53,11 @@ export default function NewTable() {
       <h1 className="display-2 text-center">Add Table</h1>
       <ErrorHandle />
       <div className="row mt-5">
-        <img src={tablePic} class="col-12 col-md-6" alt="Table-Layout"></img>
+        <img
+          src={tablePic}
+          className="col-12 col-md-6"
+          alt="Table-Layout"
+        ></img>
         <div className="col-12 col-md-6">
           <form className="" onSubmit={onSubmit}>
             <div className="form-group col-md-8 col-sm-12 mx-auto">
@@ -89,13 +93,16 @@ export default function NewTable() {
             <div className="text-center">
               <button
                 type="button"
-                className="btn btn-outline-dark mr-2 mt-3"
+                className="btn btn-outline-dark mr-2 mt-3 gray-btn"
                 onClick={() => history.goBack()}
               >
                 Cancel
               </button>
 
-              <button type="submit" className="btn btn-outline-danger mt-3">
+              <button
+                type="submit"
+                className="btn btn-outline-danger red-button-outline mt-3"
+              >
                 Submit
               </button>
             </div>

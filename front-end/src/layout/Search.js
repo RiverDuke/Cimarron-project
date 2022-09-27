@@ -96,7 +96,7 @@ export default function Search() {
             value={data.mobile_number}
           />
           <div className="input-group-append">
-            <button type="submit" className="btn btn-primary ml-2">
+            <button type="submit" className="btn btn-danger red-button ml-2">
               <span className="oi oi-magnifying-glass"></span> Find
             </button>
           </div>

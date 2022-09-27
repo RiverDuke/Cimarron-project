@@ -235,6 +235,7 @@ module.exports = {
   update: [
     asyncErrorBoundary(reservationExists),
     dataCheck,
+    validate,
     asyncErrorBoundary(update),
   ],
 };

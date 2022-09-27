@@ -44,6 +44,15 @@ hr.style-two {
   font-size: 110px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+.font400 {
+  font-family: "Regular 400";
+}
+
 .hr-margin {
   margin-top: 4rem;
   margin-bottom: 3rem;

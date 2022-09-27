@@ -142,7 +142,7 @@ export default function Dashboard({ date }) {
     return (
       <div className="d-flex row mb-4 justify-content-center">
         {/* <h4 className="ml-1 display-4">{date}</h4> */}
-        <div class="btn-group" role="group" aria-label="Basic example">
+        <div className="btn-group" role="group" aria-label="Basic example">
           <button
             type="button"
             className="btn btn-outline-danger red-button-outline"
@@ -154,7 +154,7 @@ export default function Dashboard({ date }) {
           </button>
           <button
             type="button"
-            className="btn btn-outline-dark"
+            className="btn btn-outline-dark gray-btn"
             onClick={() => {
               history.push(`/dashboard?date=${today()}`);
             }}

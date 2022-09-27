@@ -7,7 +7,6 @@ import cheesCake from "../images/cheeseCake.jpeg";
 import burgerPic from "../images/Burger.jpeg";
 import chickenPic from "../images/as-baked-chicken-threeByTwoMediumAt2X.jpeg";
 import saladPic from "../images/Simple-Green-Salad-with-Vinaigrette-Square-FS-3241.jpeg";
-import streetView from "../images/StreatView.png";
 
 /**
  * Defines the menu for this application.
@@ -27,14 +26,14 @@ function Menu() {
 
   return (
     <div className="p-0 m-0">
-      <div className="jumbotron front-page-image container-fluid d-flex flex-column ">
+      <div className="jumbotron front-page-image container-fluid d-flex flex-column">
         <div className=" mt-auto mb-auto mx-auto" style={{ marginTop: "80px" }}>
           <h3 className="lead font-italic text-white display-1 text-center menu-font">
             Satisfy that Simmerin' Appetite
           </h3>
           <div className="mt-5 mb-5 justify-content-center text-center">
             <Link
-              className=" btn btn-lg btn-danger red-button"
+              className=" btn btn-lg btn-danger red-button font400"
               to="/reservations/new"
             >
               Book A Reservation
@@ -54,7 +53,7 @@ function Menu() {
             />
 
             <div className="card-body ">
-              <h5 className="card-title">Filet Mignon</h5>
+              <h4 className="card-title">Filet Mignon</h4>
               <p className="card-text">
                 The Filet Mignon. Favored by many for its melt-in-your-mouth
                 texture, a filet is one of the most popular cuts of beef you can
@@ -70,7 +69,7 @@ function Menu() {
               alt="Smoothie"
             />
             <div className="card-body">
-              <h5 className="card-title">Smoothie</h5>
+              <h4 className="card-title">Smoothie</h4>
               <p className="card-text">
                 Fresh Squeezed Orange Juice, Pineapple Juice, or Apple juice
                 used to make a perfectly blended smoothie
@@ -85,7 +84,7 @@ function Menu() {
               alt="cheeseCake"
             />
             <div className="card-body">
-              <h5 className="card-title">Cheesecake</h5>
+              <h4 className="card-title">Cheesecake</h4>
               <p className="card-text">
                 Our legendary creamy California cheesecake baked on a golden
                 graham cracker crumb
@@ -101,7 +100,7 @@ function Menu() {
               alt="Burger"
             />
             <div className="card-body">
-              <h5 className="card-title">Black Angus Burger</h5>
+              <h4 className="card-title">Black Angus Burger</h4>
               <p className="card-text">
                 Hand-formed, 6 oz., Angus patty, stacked with Applewood-smoked
                 bacon, Cheddar cheese, lettuce, tomato, onion and house-made
@@ -116,7 +115,7 @@ function Menu() {
               alt="Chicken Legs"
             />
             <div className="card-body">
-              <h5 className="card-title">Chicken Legs</h5>
+              <h4 className="card-title">Chicken Legs</h4>
               <p className="card-text">
                 A chicken leg extends from the claw to what would be the
                 animal's hip, a prime and highly favored piece of the bird
@@ -130,7 +129,7 @@ function Menu() {
               alt="Salad"
             />
             <div className="card-body">
-              <h5 className="card-title">Classic Salad</h5>
+              <h4 className="card-title">Classic Salad</h4>
               <p className="card-text">
                 This salad has all the perfect blends of all the best textures
               </p>
@@ -142,7 +141,7 @@ function Menu() {
       <div className="d-flex m-4">
         <button
           type="button"
-          className="btn btn-lg btn-outline-danger red-button-outline mx-auto"
+          className="btn btn-lg btn-outline-danger red-button-outline mx-auto font400"
           data-toggle="modal"
           data-target="#exampleModal"
         >
@@ -176,22 +175,22 @@ function Menu() {
 
       <div
         id="carouselExampleFade"
-        class="carousel slide carousel-fade container mt-5"
+        className="carousel slide carousel-fade container mt-5"
         data-ride="carousel"
       >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
             <div className="jumbotron car-image1 mx-5 d-flex container mx-auto"></div>
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <div className="jumbotron car-image2 mx-5 d-flex container mx-auto"></div>
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <div className="jumbotron car-image3 mx-5 d-flex container mx-auto"></div>
           </div>
         </div>
         <a
-          class="carousel-control-prev"
+          className="carousel-control-prev"
           href="#carouselExampleControls"
           role="button"
           data-slide="prev"
@@ -199,13 +198,13 @@ function Menu() {
           style={{ opacity: "1" }}
         >
           <span
-            class="carousel-control-prev-icon mt-4"
+            className="carousel-control-prev-icon mt-4"
             aria-hidden="true"
           ></span>
-          <span class="sr-only">Previous</span>
+          <span className="sr-only">Previous</span>
         </a>
         <a
-          class="carousel-control-next"
+          className="carousel-control-next"
           href="#carouselExampleControls"
           role="button"
           data-slide="next"
@@ -213,10 +212,10 @@ function Menu() {
           style={{ opacity: "1" }}
         >
           <span
-            class="carousel-control-next-icon mt-4"
+            className="carousel-control-next-icon mt-4"
             aria-hidden="true"
           ></span>
-          <span class="sr-only">Next</span>
+          <span className="sr-only">Next</span>
         </a>
       </div>
       <hr className="style-two hr-margin"></hr>
@@ -232,7 +231,8 @@ function Menu() {
             style={{ border: "0", borderRadius: "5px" }}
             allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="GoogleMaps to Manhatten Beach"
           ></iframe>
 
           <div className="imgStreetView jumbotron ml-2 map-margin"> </div>
@@ -240,7 +240,7 @@ function Menu() {
 
         <div className="book-button">
           <Link
-            className=" btn btn-lg btn-danger red-button ml-3"
+            className=" btn btn-lg btn-danger red-button ml-3 font400"
             to="/reservations/new"
           >
             Book A Reservation
@@ -254,6 +254,7 @@ function Menu() {
             className="text-white"
             href="https://github.com/RiverDuke"
             target="_blank"
+            rel="noreferrer"
           >
             Github
           </a>
@@ -261,6 +262,7 @@ function Menu() {
             className="text-white mx-5"
             href="https://www.linkedin.com/in/river-duke/"
             target="_blank"
+            rel="noreferrer"
           >
             Contact Me
           </a>
@@ -268,13 +270,11 @@ function Menu() {
             className="text-white "
             href="https://riverduke.com/"
             target="_blank"
+            rel="noreferrer"
           >
             @River Duke
           </a>
         </div>
-        {/* <p className="text-white mt-3 ml-5">
-          Copyright © 2022 River Duke. All rights reserved.
-        </p> */}
       </div>
     </div>
   );
