@@ -22,7 +22,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name">
-          <h5 className="m-0 font-weight-light mt-3">Last Name:</h5>
+          <h5 className="m-0 font-weight-light mt-2">Last Name:</h5>
         </label>
         <input
           name="last_name"
@@ -36,7 +36,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name">
-          <h5 className="m-0 font-weight-light mt-3">Mobile Number:</h5>
+          <h5 className="m-0 font-weight-light mt-2">Mobile Number:</h5>
         </label>
         <input
           name="mobile_number"
@@ -50,7 +50,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="reservation_date">
-          <h5 className="m-0 font-weight-light mt-3">Reservation Date:</h5>
+          <h5 className="m-0 font-weight-light mt-2">Reservation Date:</h5>
         </label>
         <input
           name="reservation_date"
@@ -64,7 +64,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name">
-          <h5 className="m-0 font-weight-light mt-3">Reservation Time:</h5>
+          <h5 className="m-0 font-weight-light mt-2">Reservation Time:</h5>
         </label>
         <input
           name="reservation_time"
@@ -79,7 +79,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
       </div>
       <div className="form-group col-md-8 col-sm-12 mx-auto">
         <label htmlFor="name">
-          <h5 className="m-0 font-weight-light mt-3">Party Size:</h5>
+          <h5 className="m-0 font-weight-light mt-2">Party Size:</h5>
         </label>
         <input
           name="people"
@@ -94,7 +94,7 @@ export function ReservationForm({ onChange, data, onSubmit }) {
       <div className="text-center">
         <button
           type="submit"
-          className="btn btn-outline-danger red-button-outline mt-3"
+          className="btn btn-outline-danger red-button-outline mt-2"
         >
           Submit
         </button>
@@ -153,7 +153,7 @@ export default function Reservation() {
   }
 
   return (
-    <div className="container mt-3">
+    <div className="container mt-2">
       <h1 className="display-3 text-center mt-5 ">Create a Reservation</h1>
       <ErrorHandle error={reservationsError} />
       <div className="row mt-5">
@@ -168,7 +168,7 @@ export default function Reservation() {
               height: "auto",
             }}
           ></img>
-          <p className="mt-3 font-italic ml-5">
+          <p className="mt-2 font-italic ml-5">
             *Reservations will be forfeited for any arrivals 15 minutes after
             their time, closed on Tuesday
           </p>

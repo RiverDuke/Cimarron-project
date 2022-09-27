@@ -28,7 +28,7 @@ function Menu() {
     <div className="p-0 m-0">
       <div className="jumbotron front-page-image container-fluid d-flex flex-column">
         <div className=" mt-auto mb-auto mx-auto" style={{ marginTop: "80px" }}>
-          <h3 className="lead font-italic text-white display-1 text-center menu-font">
+          <h3 className="lead text-white display-1 text-center menu-font">
             Satisfy that Simmerin' Appetite
           </h3>
           <div className="mt-5 mb-5 justify-content-center text-center">
@@ -171,7 +171,7 @@ function Menu() {
           </div>
         </div>
       </div>
-      <h1 className=" font-italic display-3 text-center">Dine with Us</h1>
+      <h1 className=" display-3 text-center">Dine with Us</h1>
 
       <div
         id="carouselExampleFade"
@@ -248,8 +248,11 @@ function Menu() {
         </div>
       </div>
 
-      <div className="navbar navbar-expand-lg footer d-flex justify-content-center flex-column">
-        <div className="mt-3 ml-3">
+      <div className="navbar navbar-expand-lg footer d-flex justify-content-between flex-row">
+        <div className="text-white justify-content-left ml-4">
+          Copyright © 2022 River Duke. All rights reserved.
+        </div>
+        <div className="mr-4 ">
           <a
             className="text-white"
             href="https://github.com/RiverDuke"
@@ -272,7 +275,7 @@ function Menu() {
             target="_blank"
             rel="noreferrer"
           >
-            @River Duke
+            riverduke.com
           </a>
         </div>
       </div>
