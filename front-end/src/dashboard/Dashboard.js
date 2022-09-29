@@ -263,15 +263,19 @@ export default function Dashboard({ date }) {
         <ErrorAlert error={reservationsError} />
         <div className="p-3 mb-4 overflow-auto">
           <h3 className="text-center mt-3">Reservation List</h3>
-          <ResrVation
-            reservations={reservations}
-            loadDashboard={loadDashboard}
-          />
+          <div className=" pr-4 mr-5">
+            <ResrVation
+              reservations={reservations}
+              loadDashboard={loadDashboard}
+            />
+          </div>
         </div>
 
         <div className="p-3 overflow-auto">
           <h3 className="text-center">Table Availablity</h3>
-          <Tables />
+          <div className="">
+            <Tables />
+          </div>
         </div>
         <div className="book-button text-center">
           <Link className=" btn btn-danger red-button btn-lg" to="/search">
