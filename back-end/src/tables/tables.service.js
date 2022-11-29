@@ -1,4 +1,3 @@
-const { KnexTimeoutError } = require("knex");
 const knex = require("../db/connection");
 
 function create(newTable) {
